@@ -1,0 +1,35 @@
+style.css
+
+#navi > .glyphicons
+{
+	margin-right:20px;
+}
+
+
+
+#sarjakuva img
+{
+	clear:both;
+	max-width:100%;
+}
+
+.left
+{
+	float:left;
+}
+
+.right
+{
+	float:right;
+}
+
+#sarjakuva
+{
+	clear:both;
+	margin:100px 50px;
+}
+
+#sarjakuva > #navi
+{
+	clear:both;
+}

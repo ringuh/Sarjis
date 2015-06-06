@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fi" ng-app="app">
+<head>
+	<meta charset="UTF-16">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+	
+	<link href="{{ url_for('static', filename='css/glyphicons/glyphicons/web/bootstrap_example/css/glyphicons.css')}}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/glyphicons/glyphicons/web/bootstrap_example/css/glyphicons-bootstrap.css')}}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/style.css')}}?VBkeVEj8WJYyRUHy" rel="stylesheet">
+	<piilo>
+		<link href="{{ url_for('static', filename='js/jquery-ui-1.11.2/jquery-ui.min.css')}}" rel="stylesheet">
+		<link href="{{ url_for('static', filename='js/jquery-ui-1.11.2/jquery-ui.theme.css')}}" rel="stylesheet">
+
+		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-2.1.1.min.js')}}" ></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-ui-1.11.2/jquery-ui.min.js')}}" ></script>
+
+		<script type="text/javascript" src="{{ url_for('static', filename='js/noty/packaged/jquery.noty.packaged.min.js')}}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/noty/layouts/center.js')}}"></script>
+
+		<script type="text/javascript" src="{{ url_for('static', filename='js/angular.min.js')}}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/angular-sanitize.js')}}"></script>
+
+		<!--<script src="https://www.youtube.com/iframe_api"></script>
+		<script src="{{ url_for('static', filename='js/angular-youtube.js')}}"></script>-->
+		
+	    <script>app = angular.module('app', ['ngSanitize']);
+	    		
+	    </script>
+    </piilo>
+
+</head>
+<body ng-cloak>
+<div id="laatikko" ng-controller="UberCtrl">
+
+	
+	<nav class="navbar navbar-default" role="navigation" style="background-color: {{ organisaatio.color }} !important">
+
+	</nav>
+	<div id="runko">
+	
+
+	{% for message in get_flashed_messages() %}
+		{{ message }}<br/>
+	{% endfor %}
+
+	{% block body %}
+	{% endblock %}
+	</div>
+</div><!-- end of laatikko -->
+</body>
+
+
+
+<!-- JAVASCRIPT -->
+
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js')}}" ></script>
+<script>
+
+
+(function($) {
+    $.fn.goTo = function() {
+        $('html, body').animate({
+            scrollTop: $(this).offset().top + 'px'
+        }, 'slow');
+        return this; // for chaining...
+    }
+})(jQuery);
+
+
+app.controller('UberCtrl', function($scope, $http, $sce) {
+
+	})
+
+</script>
+
+</html>
