@@ -42,8 +42,8 @@ def Looper(comic):
 		olio = Satw(comic)
 	elif comic.parseri == 6:
 		olio = CtrlAltDel(comic)
-	elif comic.parseri == 7:
-		olio = Explosm(comic)
+	#elif comic.parseri == 7:
+		#olio = Explosm(comic)
 	elif comic.parseri == 8:
 		olio = Dragonarte(comic)
 	elif comic.parseri == 9:

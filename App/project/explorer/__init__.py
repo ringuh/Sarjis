@@ -30,8 +30,13 @@ def Strip(f):
 		n = None
 		if kwargs["strip"] > 0:
 			n = db.session.query(Strippi).filter(
+					Strippi.sarjakuva_id == kwargs["comic"].id,
+					Strippi.order = kwargs["strip"]
+				).first()
+			if n is None:
+				n = db.session.query(Strippi).filter(
 					Strippi.sarjakuva_id == kwargs["comic"].id
-				).offset(kwargs["strip"]-1).first()
+				).first()
 		if n is None:
 			flash(u"Strippi puuttuu")
 			return redirect(url_for("explorer.comic", comic=kwargs["comic"].nimi))
@@ -43,7 +48,7 @@ def Strip(f):
 def index():
 	now = datetime.datetime.now()
 	today = datetime.datetime(now.year, now.month, now.day)
-	stripit = db.session.query(Strippi).filter(Strippi.date_created >= today ).limit(200).all()
+	stripit = db.session.query(Strippi).filter(Strippi.date_created >= today ).limit(500).all()
 	return render_template("portal.html", stripit=stripit, user=None)
 
 @explorer_blueprint.route('/<comic>/')
