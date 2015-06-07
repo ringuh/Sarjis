@@ -43,7 +43,7 @@ def Strip(f):
 def index():
 	now = datetime.datetime.now()
 	today = datetime.datetime(now.year, now.month, now.day)
-	stripit = db.session.query(Strippi).filter(Strippi.date_created >= today ).all()
+	stripit = db.session.query(Strippi).filter(Strippi.date_created >= today ).limit(200).all()
 	return render_template("portal.html", stripit=stripit, user=None)
 
 @explorer_blueprint.route('/<comic>/')
@@ -59,5 +59,5 @@ def comic_strip(comic, strip):
 
 @explorer_blueprint.route('/list/')
 def list():
-	n = db.session.query(SK).order_by(SK.nimi).all()
+	n = db.session.query(SK).order_by(SK.id).all()
 	return render_template("list.html", comics=n, user=None)

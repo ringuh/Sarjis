@@ -36,8 +36,8 @@ def Looper(comic):
 		olio = Fingerpori(comic)
 	elif comic.parseri == 3:
 		olio = OOTS(comic)
-	elif comic.parseri == 4:
-		olio = Toonhole(comic)
+	#elif comic.parseri == 4:
+	#	olio = Toonhole(comic)
 	elif comic.parseri == 5:
 		olio = Satw(comic)
 	elif comic.parseri == 6:

@@ -7,8 +7,8 @@
 	<h3> {{ comic.nimi }} #{{ strip.order }} <span> {{ strip.filename }}</span></h3>
 
 	<div id="navi">
-	{% set prev = strip.id-1 %}
-	{% set next = strip.id+1 %}
+	{% set prev = strip.order-1 %}
+	{% set next = strip.order+1 %}
 	{% set max = comic.Max() %}
 	{% if prev > 0 %}
 	<a href="/{{ comic.nimi }}/1/">

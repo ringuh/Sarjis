@@ -5,7 +5,25 @@ style.css
 	margin-right:20px;
 }
 
+.glyphicons
+{
+	font-size:24px;
+}
 
+.navbar-header
+{
+	font-size:24px;
+}
+
+.navbar-header .glyphicons
+{
+	top:-2px;
+	margin-right:5px;
+}
+.navbar-header li
+{
+	margin-right:15px;
+}
 
 #sarjakuva img
 {
@@ -37,11 +55,40 @@ style.css
 #footer
 {
 	height:100px;
+	background-color:#f8f8f8;
+	border-radius:4px;
+	border:1px solid #e7e7e7;
+	width:100%;
 }
 
 #runko
 {
-	padding:10px 10px;
+	clear:both;
+	padding:10px 1px;
 	max-width:1100px;
 	margin:0px auto;
+}
+
+.twopx
+{
+	position:relative;
+	top:2px;
+}
+
+.ntwopx
+{
+	position:relative;
+	top:-2px;
+}
+
+.nfivepx
+{
+	position:relative;
+	top:-5px;
+}
+
+.fivepx
+{
+	position:relative;
+	top:5px;
 }
