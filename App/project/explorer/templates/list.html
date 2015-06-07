@@ -3,13 +3,16 @@
 {% block body %}
 
 
-{% for st in stripit %}
+{% for c in comics %}
 <div id="sarjakuva">
+	{% set st = c.Last() %}
+	{% if st != None %}
 	<h3> {{ st.sarjakuva.nimi }} {{ st.Pvm() }} -- {{ st.filename }}</h3>
-	<a href="/{{ st.sarjakuva.nimi }}/{{ st.order }}/">
+	<a href="/{{ c.nimi }}/{{ st.order }}/">
 	<img src="{{ url_for('static', 
 			filename='sarjakuvat/'+st.sarjakuva.nimi+'/'+st.filename )}}" />
 	</a><br/>
+	{% endif %}
 </div>
 {% endfor %}
 

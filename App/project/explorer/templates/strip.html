@@ -4,7 +4,7 @@
 
 
 <div id="sarjakuva" class="left">
-	<h3> {{ comic.nimi }} #{{ order }} <span> {{ strip.filename }}</span></h3>
+	<h3> {{ comic.nimi }} #{{ strip.order }} <span> {{ strip.filename }}</span></h3>
 
 	<div id="navi">
 	{% set prev = strip.id-1 %}
@@ -29,12 +29,14 @@
 	{% endif %}
 
 	</div>
+	<a href="{{ strip.url }}">
 	<img src="{{ url_for('static', 
 			filename='sarjakuvat/'+comic.nimi+'/'+strip.filename )}}" />
+	</a>
 </div>
 
 <script>
-	document.title="{{ comic.nimi }} #{{order}}"
+	document.title="{{ comic.nimi }} #{{strip.order}}"
 
 	$(document).keydown(function(e) {
     switch(e.which) {

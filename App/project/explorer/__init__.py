@@ -3,6 +3,7 @@ from flask import flash, redirect, render_template, request, url_for, Blueprint
 from project import db
 from sqlalchemy import desc, func, and_, or_
 from project.models import Sarjakuva as SK, Strippi
+import datetime
 explorer_blueprint = Blueprint('explorer', __name__, 
 					template_folder='templates',
 					static_url_path='/explorer/static',
@@ -34,14 +35,16 @@ def Strip(f):
 		if n is None:
 			flash(u"Strippi puuttuu")
 			return redirect(url_for("explorer.comic", comic=kwargs["comic"].nimi))
-		kwargs["order"] = kwargs["strip"]
 		kwargs["strip"] = n
 		return f(*args, **kwargs)
 	return decorated_function
 
 @explorer_blueprint.route('/')
 def index():
-	return render_template("portal.html", user=None)
+	now = datetime.datetime.now()
+	today = datetime.datetime(now.year, now.month, now.day)
+	stripit = db.session.query(Strippi).filter(Strippi.date_created >= today ).all()
+	return render_template("portal.html", stripit=stripit, user=None)
 
 @explorer_blueprint.route('/<comic>/')
 @Comic
@@ -51,5 +54,10 @@ def comic(comic):
 @explorer_blueprint.route('/<comic>/<int:strip>/')
 @Comic
 @Strip
-def comic_strip(comic, strip, order):
-	return render_template("strip.html", comic=comic, strip=strip, order=order, user=None)
+def comic_strip(comic, strip):
+	return render_template("strip.html", comic=comic, strip=strip, user=None)
+
+@explorer_blueprint.route('/list/')
+def list():
+	n = db.session.query(SK).order_by(SK.nimi).all()
+	return render_template("list.html", comics=n, user=None)

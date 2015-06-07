@@ -49,3 +49,14 @@ class Sarjakuva(db.Model):
 			count += 1
 
 		return count
+
+	def Last(self):
+		ret = None
+		for i in self.stripit:
+			ret = i
+		return ret
+
+
+
+
+

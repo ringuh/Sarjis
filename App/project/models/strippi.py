@@ -12,6 +12,7 @@ class Strippi(db.Model):
 	sarjakuva_id = db.Column(db.Integer, ForeignKey('sarjakuva.id'), nullable=True)
 	url = db.Column(db.UnicodeText)
 	filename = db.Column(db.UnicodeText)
+	order = db.Column(db.Integer, default=1)
 	date_created = db.Column(db.DateTime, default=datetime.datetime.now)
 	#joukkue_id = db.Column(db.Integer, ForeignKey('joukkue.id'), nullable=True)
 	
@@ -19,10 +20,13 @@ class Strippi(db.Model):
 	
 
 
-	def __init__(self, sarjakuva_id, url, filename  ):
+	def __init__(self, sarjakuva_id, url, filename, order):
 		self.sarjakuva_id = sarjakuva_id
 		self.url = url
 		self.filename = filename
+		self.order = order
+		
+		
 
 	def __repr__(self):	
 		return self.toJson()
@@ -32,3 +36,16 @@ class Strippi(db.Model):
 		ret["date_created"] = str(self.date_created)
 		#ret["last_parse"] = str(self.last_parse)
 		return ret
+
+	def Pvm(self):
+		return self.date_created.strftime("%d.%m.%y")
+
+	def Order(self):
+		count = 1
+		#for i in self.sarjakuva.stripit:
+		#	while i.id != self.id:
+		#		count += 1
+
+		return count
+
+	
