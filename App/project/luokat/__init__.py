@@ -4,3 +4,5 @@ from Sarjis import Sarjis
 from OOTS import OOTS
 from Fingerpori import Fingerpori
 from Toonhole import Toonhole
+from Satw import Satw
+from CtrlAltDel import CtrlAltDel
