@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import datetime, urllib, os, requests, hashlib
 from project.luokat.Sarjis import Sarjis
 
-class CtrlAltDel(Sarjis):
+class Explosm(Sarjis):
 	# SARJIS.info parseri, koska ctrlaltdel jotenkin suojattu?
 
 	def __init__(self, sarjakuva, urli=None ):
@@ -14,24 +14,20 @@ class CtrlAltDel(Sarjis):
 		src = None
 		kuvan_nimi = None
 
-		div = self.soup.find(id="sisalto")
-		div = div.find("div", { "class": "sarjakuva_vasen"})
-		img = div.find("img")
-		src = img["src"]
+		img = self.soup.find(id="main-comic")
+		src = u"http:{}".format(img["src"])
 		kuva = img["src"].split("/")
 		kuvan_nimi = kuva[len(kuva)-1] # haetaan nimi
 			
 		#print kuvan_nimi, src
 		return dict(nimi=kuvan_nimi, src=src)
-
-		
 		
 
 	def Next(self):
-		div = self.soup.find(id="seuraava")
+		div = self.soup.find("a", { "class": "next-comic" })
 		
-		if div is not None:
-			return div["href"]
+		if div is not None and len(div["href"]) > 1:
+			return u"{}{}".format(self.sarjakuva.url, div["href"])
 		
 		return None
 

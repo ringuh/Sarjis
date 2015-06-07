@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from project import db, app
 from bs4 import BeautifulSoup
-import datetime, urllib, os, requests, hashlib
+import datetime, urllib2, os, requests, hashlib
 from project.models import Strippi
 
 class Sarjis(object):
@@ -50,8 +50,11 @@ class Sarjis(object):
 
 		if found is None: # kuvaa ei löytynyt, tallennetaan
 			print "Tallennetaan", kuva["nimi"]
+
+			headers = { 'User-Agent' : 'Mozilla/5.0' }
+			req = urllib2.Request(kuva["src"], None, headers)
 			f = open(polku,'wb')
-			f.write(urllib.urlopen(kuva["src"]).read())
+			f.write(urllib2.urlopen(req).read())
 			f.close()
 
 			# lisätään kantaan tieto, että kuva on haettu

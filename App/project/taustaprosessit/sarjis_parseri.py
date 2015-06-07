@@ -27,8 +27,8 @@ def run():
 
 def Looper(comic):
 
-	if comic.parseri < 6:
-		return
+	#if comic.parseri < 9:
+	#	return
 	olio = Sarjis(comic)
 	if comic.parseri == 1:
 		olio = Oglaf(comic)
@@ -42,6 +42,12 @@ def Looper(comic):
 		olio = Satw(comic)
 	elif comic.parseri == 6:
 		olio = CtrlAltDel(comic)
+	elif comic.parseri == 7:
+		olio = Explosm(comic)
+	elif comic.parseri == 8:
+		olio = Dragonarte(comic)
+	elif comic.parseri == 9:
+		olio = PainTrain(comic)
 
 	#try:
 	loop = comic.last_url

@@ -6,3 +6,6 @@ from Fingerpori import Fingerpori
 from Toonhole import Toonhole
 from Satw import Satw
 from CtrlAltDel import CtrlAltDel
+from Explosm import Explosm
+from Dragonarte import Dragonarte
+from PainTrain import PainTrain
