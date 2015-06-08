@@ -3,6 +3,7 @@ from project import db, app
 from bs4 import BeautifulSoup
 import datetime, urllib2, os, requests, hashlib
 from project.models import Strippi
+from werkzeug.urls import url_fix
 
 class Sarjis(object):
 	
@@ -30,7 +31,7 @@ class Sarjis(object):
 		kuva = self.Kuva()
 		if kuva["src"] is None:
 			return None
-
+		kuva["src"] = url_fix(kuva["src"])
 		# päätetään minne tallennettaisiin jos tallennetaan
 		polku = os.path.join(app.config["SARJAKUVA_FOLDER"], self.sarjakuva.nimi)
 		polku = os.path.join(polku, kuva["nimi"])
