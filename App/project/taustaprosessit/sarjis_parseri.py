@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from project.models import Sarjakuva as SK, Strippi
 import datetime, urllib, os, requests, hashlib
 from project.luokat import *
-
+import sys
 
 
 def run():
@@ -27,8 +27,10 @@ def run():
 
 def Looper(comic):
 
-	#if comic.parseri == 8:
-	#	return
+	if "nr" in sys.argv:
+		print sys.argv
+		if comic.parseri == sys.argv[3]:
+			return
 	olio = None
 	if comic.parseri == 1:
 		olio = Oglaf(comic)
@@ -57,7 +59,8 @@ def Looper(comic):
 	 
 	while loop is not None:
 		loop = olio.Loop(comic, loop)
-		return True
+		if "short" in sys.argv:
+			return True
 	#except Exception, e:
 		#raise e
 

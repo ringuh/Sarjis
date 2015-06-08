@@ -98,7 +98,7 @@ def login():
 				print user.account
 				login_user(user, True) # kirjataan käyttäjä current_useriksi
 				
-				if user.last_login_date is not None:
+				if user.last_login_date is not None and user.account != "vieras":
 					flash(u"Last login {} from ip {}"\
 						.format(user.last_login_date, user.last_login_ip ))
 				user.last_login_date = datetime.datetime.now()
@@ -116,7 +116,7 @@ def login():
 
 	except Exception, e:
 		flash(u"{}".format(e.message))
-		return False
+		return "0"
 	
 	return "1"
 	
