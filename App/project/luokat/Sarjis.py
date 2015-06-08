@@ -49,14 +49,24 @@ class Sarjis(object):
 				Strippi.filename == kuva["nimi"]).first()
 
 		if found is None: # kuvaa ei löytynyt, tallennetaan
-			print "Tallennetaan", kuva["nimi"]
+			print "Tallennetaan", kuva["nimi"], kuva["src"]
 
 			headers = { 'User-Agent' : 'Mozilla/5.0' }
 			req = urllib2.Request(kuva["src"], None, headers)
-			f = open(polku,'wb')
-			f.write(urllib2.urlopen(req).read())
-			f.close()
+			try:
+				f = open(polku,'wb')
+				f.write(urllib2.urlopen(req).read())
+				f.close()
+			except Exception, e:
+				print "2. urllib"
+				f.close()
+				f = open(polku,'wb')
+				f.write(urllib2.urlopen(kuva["src"]).read())
+				f.close()
 
+				
+			
+	
 			# lisätään kantaan tieto, että kuva on haettu
 			order = db.session.query(Strippi).filter(
 					Strippi.sarjakuva_id == self.sarjakuva.id).count()+1

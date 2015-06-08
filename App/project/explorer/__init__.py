@@ -31,7 +31,7 @@ def Strip(f):
 		if kwargs["strip"] > 0:
 			n = db.session.query(Strippi).filter(
 					Strippi.sarjakuva_id == kwargs["comic"].id,
-					Strippi.order = kwargs["strip"]
+					Strippi.order == kwargs["strip"]
 				).first()
 			if n is None:
 				n = db.session.query(Strippi).filter(

@@ -18,13 +18,14 @@ class Toonhole(Sarjis):
 		src = img["src"]
 		kuva = img["src"].split("/")
 		kuvan_nimi = kuva[len(kuva)-1] # haetaan nimi
-	
+		#print kuvan_nimi, src
 		return dict(nimi=kuvan_nimi, src=src)
 
 		
 		
 
 	def Next(self):
+		#print "in next"
 		links = self.soup.find_all("a")
 		for link in links:
 
