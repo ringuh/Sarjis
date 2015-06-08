@@ -110,7 +110,7 @@
 
 app.controller('UberCtrl', function($scope, $http, $sce) {
 	{% if user.is_authenticated %}
-	$scope.login = { account: "ringuh", password: "zerg" }
+	$scope.login = { account: null, password: null }
 
 	$scope.Login = function()
 	{
