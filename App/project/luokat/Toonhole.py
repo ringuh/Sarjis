@@ -12,13 +12,13 @@ class Toonhole(Sarjis):
 	def Kuva(self):
 		src = None
 		kuvan_nimi = None
-
+		
 		div = self.soup.find(id="comic")
 		img = div.find("img")
 		src = img["src"]
 		kuva = img["src"].split("/")
 		kuvan_nimi = kuva[len(kuva)-1] # haetaan nimi
-		#print kuvan_nimi, src
+		
 		return dict(nimi=kuvan_nimi, src=src)
 
 		

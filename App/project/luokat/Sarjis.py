@@ -28,9 +28,14 @@ class Sarjis(object):
 		if sarjakuva is not None: # initoidaan uudella urlilla
 			self.Init(sarjakuva, url)
 
-		kuva = self.Kuva()
-		if kuva["src"] is None:
-			return None
+		try:
+			kuva = self.Kuva()
+			if kuva["src"] is None:
+				return self.Next()
+		except Exception, e:
+			print sarjakuva.nimi, e
+			return self.Next()
+			
 		kuva["src"] = url_fix(kuva["src"])
 		# päätetään minne tallennettaisiin jos tallennetaan
 		polku = os.path.join(app.config["SARJAKUVA_FOLDER"], self.sarjakuva.nimi)
@@ -59,11 +64,15 @@ class Sarjis(object):
 				f.write(urllib2.urlopen(req).read())
 				f.close()
 			except Exception, e:
-				print "2. urllib"
-				f.close()
-				f = open(polku,'wb')
-				f.write(urllib2.urlopen(kuva["src"]).read())
-				f.close()
+				try:
+					print "2. urllib"
+					f.close()
+					f = open(polku,'wb')
+					f.write(urllib2.urlopen(kuva["src"]).read())
+					f.close()
+				except Exception, e:
+					print "tallennus epäonnistui"
+					#return self.Next()
 
 				
 			

@@ -9,6 +9,11 @@ db.drop_all()
 db.create_all()
 db.session.flush()
 
+# 
+u = User(u"ringuh", u"zerg", True)
+db.session.add(u)
+
+# sarjikset
 db.session.add(Sarjakuva(u"Oglaf", 
 				u"http://oglaf.com", 
 				u"Trydy Cooper, Doub Bayne", 

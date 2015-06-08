@@ -27,7 +27,7 @@ def run():
 
 def Looper(comic):
 
-	#if comic.parseri != 4:
+	#if comic.parseri == 8:
 	#	return
 	olio = None
 	if comic.parseri == 1:
@@ -54,8 +54,10 @@ def Looper(comic):
 		olio = Sarjis(comic)
 	#try:
 	loop = comic.last_url
+	 
 	while loop is not None:
 		loop = olio.Loop(comic, loop)
+		return True
 	#except Exception, e:
 		#raise e
 

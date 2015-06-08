@@ -13,6 +13,7 @@ style.css
 .navbar-header
 {
 	font-size:24px;
+	width:100%;
 }
 
 .navbar-header .glyphicons
@@ -34,6 +35,23 @@ style.css
 .left
 {
 	float:left;
+}
+
+#login
+{
+	min-height:400px;
+	max-width:500px;
+	margin:10px auto;
+}
+
+#login input
+{
+	max-width:90%;
+}
+
+input[type=text], input[type=email], input[type=password], input[type=number]
+{
+	padding-left:10px;
 }
 
 .right

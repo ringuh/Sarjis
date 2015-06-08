@@ -38,11 +38,25 @@
 		<div class="container-fluid">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
+	    	{% if user.is_authenticated() %}
 	    	<ul class="nav navbar-nav" style="padding-left:20px">
-		        <li class="active"><a href="/"><span class="glyphicons glyphicons-turtle"></span> Tänään </a></li>
-		        <li><a href="/list/"><span class="glyphicons glyphicons-list"></span> Lista</a></li>
+		        <li {% if page=="index"%} class="active" {% endif %}>
+		        	<a href="/"><span class="glyphicons glyphicons-turtle"></span> Tänään </a></li>
+		        <li {% if page=="list"%} class="active" {% endif %}>
+		        	<a href="/list/"><span class="glyphicons glyphicons-list"></span> Lista</a></li>
 		        
 	      	</ul>
+	      	{% endif %}
+	      	<ul class="nav navbar-nav navbar-right">
+		        	{% if user.is_authenticated() %}
+		        	<li><a>{{ user.account }}</a></li>
+		        	<li><a href="/logout/">
+		        		<span class="glyphicons glyphicons-log-out"></span></a>
+		        	</li>
+		        	{% else %}
+		        	<li><a>not logged</a></li>
+		        	{% endif %}
+		        </ul>
 	    </div>    
 	  </div><!-- /.container-fluid -->
 	</nav>
@@ -52,9 +66,20 @@
 	{% for message in get_flashed_messages() %}
 		{{ message }}<br/>
 	{% endfor %}
-
+	{% if user.is_authenticated() %}
 	{% block body %}
 	{% endblock %}
+
+	{% else %}
+
+	<form id="login" ng-submit="Login()">
+		<input type="text" 		ng-model="login.account" 	placeholder="Account" />
+		<input type="password" 	ng-model="login.password" 	placeholder="Password" />
+
+		<button type="submit" class="btn"><span class="glyphicons glyphicons-log-in"></span></button>
+	</form>
+	
+	{% endif %}
 		<div style="clear:both;">
 		</div>
 	</div>
@@ -84,8 +109,28 @@
 
 
 app.controller('UberCtrl', function($scope, $http, $sce) {
+	{% if user.is_authenticated %}
+	$scope.login = { account: "ringuh", password: "zerg" }
 
-	})
+	$scope.Login = function()
+	{
+		if($scope.login.account == null || $scope.login.password == null)
+			return
+		var json = JSON.stringify($scope.login)
+
+		$http.post("/login/", json)
+		.success(function(data){
+			location.reload()
+		})
+		.error(function(fail){
+			noty({text:fail, type:"warning", timeout:3000});
+		});
+	};
+
+
+	{% endif %}
+
+})
 
 </script>
 
