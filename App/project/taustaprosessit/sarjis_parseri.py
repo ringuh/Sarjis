@@ -28,8 +28,7 @@ def run():
 def Looper(comic):
 
 	if "nr" in sys.argv:
-		print sys.argv
-		if comic.parseri == sys.argv[3]:
+		if comic.parseri != int(sys.argv[3]):
 			return
 	olio = None
 	if comic.parseri == 1:
@@ -50,6 +49,8 @@ def Looper(comic):
 		olio = Dragonarte(comic)
 	elif comic.parseri == 9:
 		olio = PainTrain(comic)
+	elif comic.parseri == 10:
+		olio = HappleTea(comic)
 
 
 	else:

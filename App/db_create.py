@@ -69,5 +69,11 @@ db.session.add(Sarjakuva(u"Paintrain",
 				u"Mark Pain", 
 				9,
 				u"http://paintraincomic.com/comic/romance/" ))
+db.session.add(Sarjakuva(u"HappleTea", 
+				u"http://www.happletea.com", 
+				u"Scott Maynard", 
+				10,
+				u"http://www.happletea.com/comic/fallacies/" ))
+
 
 db.session.commit()
