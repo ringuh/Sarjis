@@ -51,6 +51,8 @@ def Looper(comic):
 		olio = PainTrain(comic)
 	elif comic.parseri == 10:
 		olio = HappleTea(comic)
+	elif comic.parseri == 11:
+		olio = HappleTea(comic)
 
 
 	else:

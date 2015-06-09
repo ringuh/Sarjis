@@ -74,6 +74,11 @@ db.session.add(Sarjakuva(u"HappleTea",
 				u"Scott Maynard", 
 				10,
 				u"http://www.happletea.com/comic/fallacies/" ))
+db.session.add(Sarjakuva(u"Skadi", 
+				u"http://skadicomic.com", 
+				u"Katie Rice, Luke Cormican", 
+				11,
+				u"http://skadicomic.com/2008/05/07/ballad-of-skadi-pt-1-2/" ))
 
 
 db.session.commit()
