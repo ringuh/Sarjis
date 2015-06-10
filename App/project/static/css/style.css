@@ -64,7 +64,7 @@ input[type=text], input[type=email], input[type=password], input[type=number]
 	clear:both;
 }
 
-.sarjakuva h3
+.sarjakuva> h3, .sarjakuva >h3 >span
 {
 	max-width:90%;
 	overflow-x:hidden;
