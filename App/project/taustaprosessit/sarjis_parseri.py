@@ -45,7 +45,7 @@ def Looper(comic):
 		olio = CtrlAltDel(comic)
 	elif comic.parseri == 7:
 		olio = Explosm(comic)
-	elif comic.parseri == 8:
+	elif comic.parseri == 8 and not "short" in sys.argv:
 		olio = Dragonarte(comic)
 	elif comic.parseri == 9:
 		olio = PainTrain(comic)
@@ -53,6 +53,8 @@ def Looper(comic):
 		olio = HappleTea(comic)
 	elif comic.parseri == 11:
 		olio = HappleTea(comic)
+	elif comic.parseri == 12:
+		olio = VGCats(comic)
 
 
 	else:

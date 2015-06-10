@@ -39,6 +39,11 @@ class Sarjis(object):
 		kuva["src"] = url_fix(kuva["src"])
 		# päätetään minne tallennettaisiin jos tallennetaan
 		polku = os.path.join(app.config["SARJAKUVA_FOLDER"], self.sarjakuva.nimi)
+		dir = os.path.dirname(polku) # luodaan sarjakuvat kansio if needed
+		try:
+			os.stat(dir)
+		except:
+			os.mkdir(dir)
 		polku = os.path.join(polku, kuva["nimi"])
 		
 		# luodaan kansio if needed

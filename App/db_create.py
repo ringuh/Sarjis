@@ -79,6 +79,13 @@ db.session.add(Sarjakuva(u"Skadi",
 				u"Katie Rice, Luke Cormican", 
 				11,
 				u"http://skadicomic.com/2008/05/07/ballad-of-skadi-pt-1-2/" ))
+db.session.add(Sarjakuva(u"VGCats", 
+				u"http://www.vgcats.com/comics/", 
+				u"Scott Ramsoomair", 
+				12,
+				u"http://www.vgcats.com/comics/?strip_id=1" ))
+
+
 
 
 db.session.commit()

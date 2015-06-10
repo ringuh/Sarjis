@@ -11,3 +11,4 @@ from Dragonarte import Dragonarte
 from PainTrain import PainTrain
 from HappleTea import HappleTea
 from Skadi import Skadi
+from VGCats import VGCats
