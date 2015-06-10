@@ -3,10 +3,10 @@
 {% block body %}
 
 
-<div id="sarjakuva" class="left">
+<div class="sarjakuva left">
 	<h3> {{ comic.nimi }} #{{ strip.order }} <span> {{ strip.filename }}</span></h3>
 
-	<div id="navi">
+	<div class="navi">
 	{% set prev = strip.order-1 %}
 	{% set next = strip.order+1 %}
 	{% set max = comic.Max() %}

@@ -59,16 +59,25 @@ input[type=text], input[type=email], input[type=password], input[type=number]
 	float:right;
 }
 
-#sarjakuva
+.sarjakuva
 {
 	clear:both;
 	margin:20px 50px 80px 50px;
 }
 
-#sarjakuva > #navi
+.sarjakuva > .navi
 {
 	clear:both;
 }
+
+.sarjakuva h3
+{
+	max-width:90%;
+	overflow-x:hidden;
+}
+
+
+
 
 #footer
 {

@@ -4,7 +4,7 @@
 
 
 {% for c in comics %}
-<div id="sarjakuva">
+<div class="sarjakuva">
 	{% set st = c.Last() %}
 	{% if st != None %}
 	<h3> {{ st.sarjakuva.nimi }} {{ st.Pvm() }} -- {{ st.filename }}</h3>

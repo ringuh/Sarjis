@@ -12,3 +12,4 @@ from PainTrain import PainTrain
 from HappleTea import HappleTea
 from Skadi import Skadi
 from VGCats import VGCats
+from PocketPrinsesses import PocketPrinsesses

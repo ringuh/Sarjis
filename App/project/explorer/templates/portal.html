@@ -4,7 +4,7 @@
 
 
 {% for st in stripit %}
-<div id="sarjakuva">
+<div class="sarjakuva">
 	<h3> {{ st.sarjakuva.nimi }} {{ st.Pvm() }} -- {{ st.filename }}</h3>
 	<a href="/{{ st.sarjakuva.nimi }}/{{ st.order }}/">
 	<img src="{{ url_for('static', 
