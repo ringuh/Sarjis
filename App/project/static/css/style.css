@@ -26,12 +26,6 @@ style.css
 	margin-right:15px;
 }
 
-#sarjakuva img
-{
-	clear:both;
-	max-width:100%;
-}
-
 .left
 {
 	float:left;
@@ -74,6 +68,12 @@ input[type=text], input[type=email], input[type=password], input[type=number]
 {
 	max-width:90%;
 	overflow-x:hidden;
+}
+
+.sarjakuva img
+{
+	clear:both;
+	max-width:100%;
 }
 
 
