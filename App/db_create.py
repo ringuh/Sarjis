@@ -99,7 +99,11 @@ db.session.add(Sarjakuva(u"Camp Comic",
 				u"Dani", 
 				15,
 				u"http://campcomic.com/comic/dear-mom" ))
-
+db.session.add(Sarjakuva(u"Fredo & Pidjin", 
+				u"http://www.pidjin.net/", 
+				u"Dani", 
+				16,
+				u"http://www.pidjin.net/2005/05/30/tricks-to-getting-delayed/" ))
 
 
 db.session.commit()
