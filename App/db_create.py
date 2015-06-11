@@ -94,6 +94,11 @@ db.session.add(Sarjakuva(u"Sinfest",
 				u"Tatsuya Ishida", 
 				14,
 				u"http://www.sinfest.net/view.php?date=2000-01-17" ))
+db.session.add(Sarjakuva(u"Camp Comic", 
+				u"http://campcomic.com/", 
+				u"Dani", 
+				15,
+				u"http://campcomic.com/comic/dear-mom" ))
 
 
 

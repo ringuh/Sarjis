@@ -59,6 +59,8 @@ def Looper(comic):
 		olio = NerfNow(comic)
 	elif comic.parseri == 14:
 		olio = Sinfest(comic)
+	elif comic.parseri == 15:
+		olio = Camp(comic)
 	
 
 

@@ -15,3 +15,4 @@ from VGCats import VGCats
 from PocketPrinsesses import PocketPrinsesses
 from NerfNow import NerfNow
 from Sinfest import Sinfest
+from Camp import Camp
