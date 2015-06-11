@@ -3,7 +3,7 @@ http://www.davidrevoy.com/static3/pepper-and-carrot
 http://www.gunshowcomic.com/
 http://hugleikurdagsson.tumblr.com/
 http://www.catsuthecat.com/blogs/comics
-http://satwcomic.com/
+
 http://www.nerfnow.com/comic/1401
 http://batlesbo.deviantart.com/art/Cat-got-your-tongue-287561311
 http://dragonarte.com.br/
@@ -57,3 +57,4 @@ oots
 paintrain
 skadicomic.com
 vg-cats
+http://satwcomic.com/

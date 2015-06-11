@@ -84,6 +84,11 @@ db.session.add(Sarjakuva(u"VGCats",
 				u"Scott Ramsoomair", 
 				12,
 				u"http://www.vgcats.com/comics/?strip_id=1" ))
+db.session.add(Sarjakuva(u"Nerf Now", 
+				u"http://www.nerfnow.com/", 
+				u"Josué Pereira", 
+				13,
+				u"http://www.nerfnow.com/comic/4" ))
 
 
 
