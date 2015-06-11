@@ -57,6 +57,8 @@ def Looper(comic):
 		olio = VGCats(comic)
 	elif comic.parseri == 13:
 		olio = NerfNow(comic)
+	elif comic.parseri == 14:
+		olio = Sinfest(comic)
 	
 
 

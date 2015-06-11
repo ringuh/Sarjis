@@ -89,7 +89,11 @@ db.session.add(Sarjakuva(u"Nerf Now",
 				u"Josué Pereira", 
 				13,
 				u"http://www.nerfnow.com/comic/4" ))
-
+db.session.add(Sarjakuva(u"Sinfest", 
+				u"http://www.sinfest.net/", 
+				u"Tatsuya Ishida", 
+				14,
+				u"http://www.sinfest.net/view.php?date=2000-01-17" ))
 
 
 
