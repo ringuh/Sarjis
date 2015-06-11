@@ -51,8 +51,37 @@ def Strip(f):
 def index():
 	now = datetime.datetime.now()
 	today = datetime.datetime(now.year, now.month, now.day)
+	yesterday = today - datetime.timedelta(days=1)
+	tomorrow = today + datetime.timedelta(days=1)
+	dates = dict(	yesterday=yesterday.strftime("%Y-%m-%d"),
+					today=today.strftime("%Y-%m-%d"),
+					tomorrow=tomorrow.strftime("%Y-%m-%d"),
+					next_day=False
+				)
 	stripit = db.session.query(Strippi).filter(Strippi.date_created >= today ).limit(500).all()
-	return render_template("portal.html", page="index", stripit=stripit, user=current_user)
+	return render_template("portal.html", page="index", 
+		dates=dates, stripit=stripit, user=current_user)
+
+@explorer_blueprint.route('/d/<pvm>/')
+def pvm(pvm):
+	try:
+		now = datetime.datetime.strptime(pvm, "%Y-%m-%d")
+	except Exception, e:
+		now = datetime.datetime.now()
+	
+	today = datetime.datetime(now.year, now.month, now.day)
+	yesterday = today - datetime.timedelta(days=1)
+	tomorrow = today + datetime.timedelta(days=1)
+	dates = dict(	yesterday=yesterday.strftime("%Y-%m-%d"),
+					day=today.strftime("%Y-%m-%d"),
+					tomorrow=tomorrow.strftime("%Y-%m-%d"),
+
+					next_day=datetime.datetime.now() > tomorrow
+				)
+	stripit = db.session.query(Strippi).filter(Strippi.date_created >= today ).limit(500).all()
+	return render_template("portal.html", page="index", 
+		dates=dates, stripit=stripit, user=current_user)
+
 
 @explorer_blueprint.route('/<comic>/')
 @login_required

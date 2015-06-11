@@ -119,3 +119,29 @@ input[type=text], input[type=email], input[type=password], input[type=number]
 	position:relative;
 	top:5px;
 }
+.r180
+{
+	 -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+
+
+
+#navigaattori
+{
+
+}
+
+#navigaattori a
+{
+	
+}
+#navigaattori a:nth-child(2)
+{
+	margin:0px 15px;
+	background-color:black;
+	color:white;
+	padding:6px 12px;
+}
+
