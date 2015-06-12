@@ -44,16 +44,18 @@ class Sarjakuva(db.Model):
 		return ret
 
 	def Max(self):
-		count = 0
-		for i in self.stripit:
-			count += 1
+		from project.models import Strippi
+		count = db.session.query(Strippi).filter(
+			Strippi.sarjakuva_id == self.id).count()
 
 		return count
 
 	def Last(self):
+		from project.models import Strippi
 		ret = None
-		for i in self.stripit:
-			ret = i
+		ret = db.session.query(Strippi).filter(
+			Strippi.sarjakuva_id == self.id).order_by(
+					Strippi.id.desc()).first()
 		return ret
 
 	def UserStatus(self, id):
