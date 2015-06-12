@@ -1,0 +1,243 @@
+{% extends "pohja.html" %}
+
+{% block body %}
+<div ng-controller="Ctrl" id="options">
+	<div class="sarjakuva">
+		<h3> Hallinta </h3>
+		
+		<form ng-submit="changePass()">
+			<h4> Vaihda salasana </h4>
+			<input ng-model="pw1" type="password" ng-change="vrtPass()" placeholder="Uusi salasana" required/><br/>
+			<input ng-model="pw2" type="password" 
+				ng-change="vrtPass()" 
+				ng-style="{ 'border-color': vrt ? 'red': '' }"
+				placeholder="Salasana uudestaan" required/><br/>
+			<br/>
+			<input ng-model="oldpw" type="password" placeholder="Nykyinen salasana" required/>
+			<button type="submit">
+				<span class="glyphicons glyphicons-ok"></span>
+			</button>
+		</form> <!-- end of change pass -->
+
+		<h3> Sarjakuvat </h3>
+		<div class="table-responsive">
+		<table class="table table-striped table-hover comiclist">
+			<thead>
+				<tr>
+					<th>Näytä</th>
+					<th>Nimi</th>
+				</tr>
+			</thead>
+			<tr ng-repeat="i in comics" class="pointer">
+				<td><input ng-change="getComics(i)" type="checkbox" ng-model="i.visibility" /></td>
+				<td ng-click="getComics(i, true)">{{ i.nimi|angular }}</td>
+			</tr>
+
+		</table>
+		</div>
+
+		{% if user.admin %}
+		<h3> Käyttäjät </h3>
+		<div class="table-responsive">
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Account</th>
+					<th>Last login</th>
+					<th>Created</th>
+					<th>IP</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tr ng-class="{ 'active': admin }" ng-repeat="i in users" class="pointer">
+				<td>{{ i.id|angular }}</td>
+				<td>{{ i.account|angular }}</td>
+				<td>{{ i.last_login_date|angular }}</td>
+				<td>{{ i.date_created|angular }}</td>
+				<td>{{ i.last_login_ip|angular }}</td>
+				<td class="gg">
+					<span ng-click="changePass(i)" class="glyphicons glyphicons-user-lock pointer"></span>
+					<span ng-click="takeOver(i)" class="glyphicons glyphicons-person pointer"></span>
+					<!--<span class="glyphicons glyphicons-remove pointer"></span>-->
+				</td>
+			</tr>
+
+		</table>
+		</div>
+
+		<h3> Uusi käyttäjä </h3>
+		<form ng-submit="Register()">
+			<input ng-model="new_user.account" type="text" placeholder="Account" />
+			<input ng-model="new_user.password" type="password" placeholder="Password" />
+			<button type="submit">
+				<span class="glyphicons glyphicons-ok"></span>
+			</button>
+		</form>
+		{% endif %}
+
+	</div>
+</div>
+
+
+<script>
+document.title = "Sarjakuvat {{ dates.day }}";
+
+app.controller('Ctrl', function($scope, $http, $sce) {
+	$scope.vrt = false;
+	$scope.comics = []
+	$scope.changePass = function(user){
+		
+		var json = {}
+		if( user == null){
+			if( $scope.pw1 != $scope.pw2 || $scope.pw1 == null || $scope.pw1.trim() == "")
+				return
+			json = { id: {{ user.id }}, 
+					new_pass: $scope.pw1.trim(),
+					old_pass: $scope.oldpw }
+		}
+		
+		else{
+			json.id = user.id
+			json.new_pass = user.account
+		}
+		
+
+		$http.post("/options/change_pass/", JSON.stringify(json))
+		.success(function(data){
+			console.log(data)
+			if( data.msg != null )
+				noty({text:data.msg, type:"success", timeout:3000});
+
+		}).error(function(fail){
+			noty({text:fail, type:"warning", timeout:3000});
+		});
+	};
+
+	$scope.vrtPass = function(){
+		$scope.vrt = false
+		if( $scope.pw1 != $scope.pw2 )
+			$scope.vrt = true
+
+		return $scope.vrt
+	};
+
+	$scope.getComics = function(x, bool)
+	{
+		var json = {}
+		if( bool != null && bool)
+			x.visibility = !x.visibility
+		if( x != null )
+			json = x
+		$http.post("/options/my_comics/", JSON.stringify(json))
+		.success(function(data){
+			console.log(data)
+			if( data.msg != null )
+				noty({text:data.msg, type:"success", timeout:1500});
+			$scope.comics = data.comics
+		}).error(function(fail){
+			noty({text:fail, type:"warning", timeout:3000});
+		});
+	}
+
+	$scope.getComics();
+
+	{% if user.admin %}
+	$scope.getUsers = function(x)
+	{
+		var json = {}
+		if( x != null )
+			json = x
+		$http.post("/options/users/", JSON.stringify(json))
+		.success(function(data){
+			console.log(data)
+			if( data.msg != null )
+				noty({text:data.msg, type:"success", timeout:1500});
+			$scope.users = data.users
+		}).error(function(fail){
+			noty({text:fail, type:"warning", timeout:3000});
+		});
+	}
+	$scope.getUsers();
+
+	$scope.takeOver = function(x)
+	{
+		noty({
+			text: 'Otetaanko haltuun '+x.account+'?',
+			buttons: [
+				{addClass: 'btn btn-primary', text: 'Kyllä', onClick: function($noty) {
+
+						$http.post("/options/users/take_over/", JSON.stringify(x))
+						.success(function(data){
+							console.log(data)
+							if( data.msg != null )
+								noty({text:data.msg, type:"success", timeout:1500});
+							else
+								location.reload()
+						}).error(function(fail){
+							noty({text:fail, type:"warning", timeout:3000});
+						});
+
+						$noty.close();
+						
+					}
+				},
+				{addClass: 'btn btn-danger', text: 'Ei', onClick: function($noty) {
+						$noty.close();
+					}
+				}
+			]
+		});
+	}
+		$scope.Remove = function(x)
+		{
+			noty({
+				text: 'Poistetaanko '+x.account+'?',
+				buttons: [
+					{addClass: 'btn btn-primary', text: 'Kyllä', onClick: function($noty) {
+							noty({text:"Not implemented", type:"warning", timeout:3000});
+							return;
+							$http.post("/options/users/take_over/", JSON.stringify(x))
+							.success(function(data){
+								console.log(data)
+								if( data.msg != null )
+									noty({text:data.msg, type:"success", timeout:1500});
+								else
+									location.reload()
+							}).error(function(fail){
+								noty({text:fail, type:"warning", timeout:3000});
+							});
+
+							$noty.close();
+							
+						}
+					},
+					{addClass: 'btn btn-danger', text: 'Ei', onClick: function($noty) {
+							$noty.close();
+						}
+					}
+				]
+			});
+	}
+
+	$scope.Register = function()
+	{
+		$http.post("/options/users/register/", JSON.stringify($scope.new_user))
+		.success(function(data){
+			console.log(data)
+			if( data.msg != null )
+				noty({text:data.msg, type:"success", timeout:1500});
+			else
+				$scope.getUsers()
+		}).error(function(fail){
+			noty({text:fail, type:"warning", timeout:3000});
+		});
+	};
+
+	{% endif %}
+});
+
+</script>
+
+
+{% endblock %}

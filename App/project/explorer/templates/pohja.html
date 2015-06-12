@@ -9,7 +9,7 @@
 	<link href="{{ url_for('static', filename='css/glyphicons/glyphicons/web/bootstrap_example/css/glyphicons.css')}}" rel="stylesheet">
 	<link href="{{ url_for('static', filename='css/glyphicons/glyphicons/web/bootstrap_example/css/glyphicons-bootstrap.css')}}" rel="stylesheet">
 	<link href="{{ url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
-	<link href="{{ url_for('static', filename='css/style.css')}}?VBkeVEj8WJYyRUHy" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/style.css')}}?VBkeVEj1WJYyRUHy" rel="stylesheet">
 	<piilo>
 		<link href="{{ url_for('static', filename='js/jquery-ui-1.11.2/jquery-ui.min.css')}}" rel="stylesheet">
 		<link href="{{ url_for('static', filename='js/jquery-ui-1.11.2/jquery-ui.theme.css')}}" rel="stylesheet">
@@ -49,7 +49,10 @@
 	      	{% endif %}
 	      	<ul class="nav navbar-nav navbar-right">
 		        	{% if user.is_authenticated() %}
-		        	<li><a>{{ user.account }}</a></li>
+		        	<li {% if page=="list"%} class="options" {% endif %}>
+		        		<a href="/options/">
+		        			<span class="glyphicons glyphicons-settings"></span>
+		        			{{ user.account }}</a></li>
 		        	<li><a href="/logout/">
 		        		<span class="glyphicons glyphicons-log-out"></span> <span class="smallscreen twopx">Logout</span></a>
 		        	</li>
@@ -64,7 +67,7 @@
 	
 
 	{% for message in get_flashed_messages() %}
-		{{ message }}<br/>
+		<span style="padding-left:20px">{{ message }}</span><br/>
 	{% endfor %}
 	{% if user.is_authenticated() %}
 	{% block body %}

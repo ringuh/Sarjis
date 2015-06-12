@@ -40,6 +40,15 @@ class User(db.Model):
 		self.set_password(passwd)
 		self.admin = admin
 
+	def toJson(self):
+		ret = {c.name: getattr(self, c.name) for c in self.__table__.columns}
+		if self.date_created is not None:
+			ret["date_created"] = self.date_created.strftime("%Y-%m-%d %H:%M:%S")
+		if self.last_login_date is not None:
+			ret["last_login_date"] = self.last_login_date.strftime("%Y-%m-%d %H:%M:%S")
+		ret.pop("password", None)
+
+		return ret
 
 	def set_password(self, password=None):
 		from passlib.apps import custom_app_context as pwd_context
@@ -60,3 +69,13 @@ class User(db.Model):
 		from passlib.apps import custom_app_context as pwd_context
 		return pwd_context.verify(password.strip(), self.password )
 
+
+	def getKarsitut(self):
+		from project.models import Sarjakuva_user as SKU
+		karsitut = db.session.query(SKU.sarjakuva_id).filter(
+					SKU.user_id == self.id,
+					SKU.visibility == False ).all()
+		if len(karsitut) == 0:
+			karsitut = [-1]
+
+		return karsitut

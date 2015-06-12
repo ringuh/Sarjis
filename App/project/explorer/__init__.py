@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-from flask import flash, redirect, render_template, request, url_for, Blueprint
+from flask import flash, redirect, render_template, request, url_for, Blueprint, jsonify
 from project import db
 from flask.ext.login import current_user, login_required, login_user, logout_user
 from sqlalchemy import desc, func, and_, or_
-from project.models import Sarjakuva as SK, Strippi, User, Brute_force, Event_log
+from project.models import Sarjakuva as SK, Strippi, User, Brute_force, Event_log,\
+Sarjakuva_user as SKU
 import datetime
 explorer_blueprint = Blueprint('explorer', __name__, 
 					template_folder='templates',
@@ -59,7 +60,9 @@ def index(pvm=None):
 		now = datetime.datetime.strptime(pvm, "%Y-%m-%d")
 	except Exception, e:
 		now = datetime.datetime.now()
-	
+	if current_user.is_anonymous():
+		return render_template("portal.html", page="index", 
+			dates=None, stripit=None, user=current_user)
 	today = datetime.datetime(now.year, now.month, now.day)
 	
 	yesterday = today - datetime.timedelta(days=1)
@@ -69,9 +72,12 @@ def index(pvm=None):
 					tomorrow=tomorrow.strftime("%Y-%m-%d"),
 					next_day=datetime.datetime.now() > tomorrow
 				)
+	karsitut = current_user.getKarsitut()
+
 	stripit = db.session.query(Strippi).filter(
 				Strippi.date_created >= today, 
-				Strippi.date_created < tomorrow ).limit(100).all()
+				Strippi.date_created < tomorrow,
+				~Strippi.sarjakuva_id.in_(karsitut) ).limit(100).all()
 	
 	return render_template("portal.html", page="index", 
 		dates=dates, stripit=stripit, user=current_user)
@@ -92,8 +98,132 @@ def comic_strip(comic, strip):
 @explorer_blueprint.route('/list/')
 @login_required
 def list():
-	n = db.session.query(SK).order_by(SK.id).all()
+	n = db.session.query(SK).filter(
+			~SK.id.in_(current_user.getKarsitut())).order_by(SK.id).all()
 	return render_template("list.html", page="list", comics=n, user=current_user)
+
+
+
+@explorer_blueprint.route('/options/')
+@login_required
+def options():
+	n = db.session.query(SK).order_by(SK.id).all()
+	comics = [i.toJson() for i in n]
+
+	users = None
+	if current_user.admin:
+		users = db.session.query(User).all()
+
+	return render_template("options.html", page="options", comics=comics, users=users, user=current_user)
+
+@explorer_blueprint.route('/options/change_pass/', methods=["POST"])
+@login_required
+def change_pass():
+	json = request.get_json(True)
+	msg = None
+	#print json
+	msg = u"Ei tehty mitään"
+	try:
+		u = db.session.query(User).get(json["id"])
+		if u.id == current_user.id and "old_pass" in json and u.verify_pass(json["old_pass"]):
+			u.set_password(json["new_pass"])
+			db.session.commit()
+			msg = u"Vaihdettiin salasana"
+		else:
+			msg = u"Virheellinen salasana"
+			if current_user.admin:
+				try:
+					u = db.session.query(User).get(json["id"])
+					u.set_password(json["new_pass"])
+					db.session.commit()
+					msg = u"Salasanaksi asetettiin "+json["new_pass"]
+
+				except Exception, e:
+					msg = u"Salasanan asetus epäonnistui"
+
+	except Exception, e:
+		msg = u"Salasanan asetus epäonnistui"
+
+	return jsonify(msg=msg)
+
+@explorer_blueprint.route('/options/my_comics/', methods=["POST"])
+@login_required
+def my_comics():
+	json = request.get_json(True)
+	msg = None
+	#print json
+	if "id" in json and "visibility" in json:
+		n = db.session.query(SKU).filter(
+				SKU.sarjakuva_id == json["id"],
+				SKU.user_id == current_user.id ).first()
+		if n is None:
+			db.session.add(SKU(json["id"], current_user.id, json["visibility"]))
+			
+		else:
+			n.visibility = json["visibility"]
+		db.session.commit()
+		msg = u"Tallennettiin"
+
+	tmp = db.session.query(SK).order_by(SK.nimi).all()
+	comics = []
+	for i in tmp:
+		comics.append(i.StatusJson(current_user.id))
+
+	return jsonify(comics=comics, msg=msg)
+
+@explorer_blueprint.route('/options/users/', methods=["POST"])
+@login_required
+def users():
+	json = request.get_json(True)
+	msg = None
+	#print json
+
+	if not current_user.admin:
+		return "error", 400
+
+	tmp = db.session.query(User).order_by(User.id).all()
+	users = [i.toJson() for i in tmp]
+
+	return jsonify(users=users, msg=msg)
+
+@explorer_blueprint.route('/options/users/take_over/', methods=["POST"])
+@login_required
+def take_over():
+	json = request.get_json(True)
+	msg = None
+
+	if not current_user.admin:
+		return "error", 400
+	try:
+		tmp = db.session.query(User).get(json["id"])
+		logout_user()
+		login_user(tmp)			
+	except Exception, e:
+		msg = u"Epäonnistui"
+	
+	
+
+	return jsonify(msg=msg)
+
+@explorer_blueprint.route('/options/users/register/', methods=["POST"])
+@login_required
+def register():
+	json = request.get_json(True)
+	msg = None
+	#print json
+
+	if not current_user.admin:
+		return "error", 400
+	try:
+		db.session.add(User(json["account"].strip().lower(), json["password"].strip()))
+		db.session.commit()
+	except Exception, e:
+		msg = u"Epäonnistui"
+	
+	
+
+	return jsonify(msg=msg)
+
 
 @explorer_blueprint.route('/login/', methods=["POST"])
 def login():

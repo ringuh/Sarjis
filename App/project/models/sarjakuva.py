@@ -56,6 +56,23 @@ class Sarjakuva(db.Model):
 			ret = i
 		return ret
 
+	def UserStatus(self, id):
+		from project.models import Sarjakuva_user as SKU
+		ret = True
+
+		n = db.session.query(SKU).filter(
+				SKU.sarjakuva_id == self.id,
+				SKU.user_id == id ).first()
+		if n is not None:
+			ret = n.visibility
+
+		return ret
+
+	def StatusJson(self, id):
+		ret = self.toJson()
+		ret["visibility"] = self.UserStatus(id)
+
+		return ret
 
 
 
