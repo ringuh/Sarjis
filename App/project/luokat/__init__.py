@@ -17,3 +17,4 @@ from NerfNow import NerfNow
 from Sinfest import Sinfest
 from Camp import Camp
 from Pidjin import Pidjin
+from Garfield import Garfield

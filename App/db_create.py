@@ -104,6 +104,16 @@ db.session.add(Sarjakuva(u"Fredo & Pidjin",
 				u"Dani", 
 				16,
 				u"http://www.pidjin.net/2005/05/30/tricks-to-getting-delayed/" ))
+db.session.add(Sarjakuva(u"U.S. Acres", 
+				u"http://garfield.com/us-acres", 
+				u"Jim Davis", 
+				17,
+				u"http://garfield.com/us-acres/2012-06-01" ))
+db.session.add(Sarjakuva(u"Garfield", 
+				u"http://garfield.com/comic", 
+				u"Jim Davis", 
+				17,
+				u"http://garfield.com/comic/2012-06-01" ))
 
 
 db.session.commit()

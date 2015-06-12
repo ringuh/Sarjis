@@ -63,6 +63,8 @@ def Looper(comic):
 		olio = Camp(comic)
 	elif comic.parseri == 16:
 		olio = Pidjin(comic)
+	elif comic.parseri == 17:
+		olio = Garfield(comic)
 
 	else:
 		olio = Sarjis(comic)
