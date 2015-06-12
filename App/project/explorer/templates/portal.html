@@ -28,6 +28,12 @@
 </div>
 {% endfor %}
 
+{% if stripit|length == 0%}
+<div class="sarjakuva">
+	<h3> Ei sarjakuvia tälle päivälle </h3>
+</div>
+{% endif %}
+
 <script>
 document.title = "Sarjakuvat {{ dates.day }}";
 

@@ -68,7 +68,7 @@ def Looper(comic):
 		olio = Sarjis(comic)
 	#try:
 	loop = comic.last_url
-	 
+	
 	while loop is not None:
 		loop = olio.Loop(comic, loop)
 		if "short" in sys.argv:
