@@ -126,5 +126,10 @@ db.session.add(Sarjakuva(u"Questionable Content",
 				19,
 				u"http://questionablecontent.net/view.php?comic=1" ))
 
+db.session.add(Sarjakuva(u"Wulffmorgenthaler", 
+				u"http://kindofnormal.com/wumo/", 
+				u"Wumo", 
+				6, # vaihda in future
+				u"http://www.sarjis.info/sarjakuvat/wulffmorgenthaler/95/" ))
 
 db.session.commit()

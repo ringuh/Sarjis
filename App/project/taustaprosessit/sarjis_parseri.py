@@ -69,6 +69,9 @@ def Looper(comic):
 		olio = LeastICouldDo(comic)
 	elif comic.parseri == 19:
 		olio = GC(comic)
+	#elif comic.parseri == 20:
+	#	olio = Wulfmorgenthaler(comic)
+
 
 	else:
 		olio = Sarjis(comic)
