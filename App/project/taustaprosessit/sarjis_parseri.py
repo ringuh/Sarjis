@@ -65,6 +65,8 @@ def Looper(comic):
 		olio = Pidjin(comic)
 	elif comic.parseri == 17:
 		olio = Garfield(comic)
+	elif comic.parseri == 18:
+		olio = LeastICouldDo(comic)
 
 	else:
 		olio = Sarjis(comic)

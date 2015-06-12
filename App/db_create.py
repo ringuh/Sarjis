@@ -115,5 +115,10 @@ db.session.add(Sarjakuva(u"Garfield",
 				17,
 				u"http://garfield.com/comic/2012-06-01" ))
 
+db.session.add(Sarjakuva(u"Least I could do", 
+				u"http://www.leasticoulddo.com/comic/", 
+				u"Ryan Sohmer & Trevor Adams", 
+				18,
+				u"http://www.leasticoulddo.com/comic/20030210/" ))
 
 db.session.commit()
