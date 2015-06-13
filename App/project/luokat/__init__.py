@@ -20,4 +20,4 @@ from Pidjin import Pidjin
 from Garfield import Garfield
 from LeastICouldDo import LeastICouldDo
 from GC import GC
-from Wulfmorgenthaler import Wulfmorgenthaler
+from Wulffmorgenthaler import Wulffmorgenthaler
