@@ -132,4 +132,12 @@ db.session.add(Sarjakuva(u"Wulffmorgenthaler",
 				6, # vaihda in future
 				u"http://www.sarjis.info/sarjakuvat/wulffmorgenthaler/95/" ))
 
+db.session.add(Sarjakuva(u"Lassi ja Leevi", 
+				u"http://www.gocomics.com/calvinandhobbes/", 
+				u"Bill Watterson", 
+				20, # vaihda in future
+				u"http://www.gocomics.com/calvinandhobbes/2014/06/13" ))
+
+
+
 db.session.commit()

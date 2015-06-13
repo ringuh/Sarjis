@@ -20,7 +20,7 @@ class Sarjis(object):
 		if url is None:
 			url = sarjakuva.last_url
 		self.urli = url
-		r = requests.get(url)
+		r = requests.get(url, headers = { 'User-Agent' : 'Mozilla/5.0' })
 		self.soup = BeautifulSoup(r.text)
 		print u"\nFinding url", url 
 
@@ -35,7 +35,7 @@ class Sarjis(object):
 		except Exception, e:
 			print sarjakuva.nimi, e
 			return self.Next()
-			
+	
 		kuva["src"] = url_fix(kuva["src"])
 		# päätetään minne tallennettaisiin jos tallennetaan
 		polku = os.path.join(app.config["SARJAKUVA_FOLDER"], self.sarjakuva.nimi)
@@ -45,7 +45,7 @@ class Sarjis(object):
 		except:
 			os.mkdir(dir)
 		polku = os.path.join(polku, kuva["nimi"])
-		
+
 		# luodaan kansio if needed
 		dir = os.path.dirname(polku) 
 		try:

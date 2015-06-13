@@ -27,7 +27,7 @@ class Sinfest(Sarjis):
 		link = self.soup.find_all("a")
 		for l in link:
 			tmp = l.find("img")
-			if tmp is not None and tmp["src"] == "../images/next.gif":
+			if tmp is not None and l["href"] != "view.php?date=" and tmp["src"] == "../images/next.gif":
 				return u"{}{}".format(self.sarjakuva.url, l["href"])
 		
 		return None
