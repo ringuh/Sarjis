@@ -22,3 +22,4 @@ from LeastICouldDo import LeastICouldDo
 from GC import GC
 from Wulffmorgenthaler import Wulffmorgenthaler
 from LassiLeevi import LassiLeevi
+from PennyArcade import PennyArcade

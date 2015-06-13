@@ -137,7 +137,11 @@ db.session.add(Sarjakuva(u"Lassi ja Leevi",
 				u"Bill Watterson", 
 				20, # vaihda in future
 				u"http://www.gocomics.com/calvinandhobbes/2014/06/13" ))
-
+db.session.add(Sarjakuva(u"Penny Arcade", 
+				u"http://www.penny-arcade.com/", 
+				u"Mike Krahulik & Jerry Holkins", 
+				21,
+				u"http://www.penny-arcade.com/comic/1998/11/18" ))
 
 
 db.session.commit()
