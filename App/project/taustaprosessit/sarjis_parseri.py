@@ -91,6 +91,14 @@ def Looper(comic):
 		olio = Interrobang(comic)
 	elif comic.parseri == 30:
 		olio = Unsounded(comic)
+	elif comic.parseri == 31:
+		olio = Catsu(comic)
+	elif comic.parseri == 32:
+		olio = PerryBible(comic)
+	elif comic.parseri == 33:
+		olio = Dilbert(comic)
+	elif comic.parseri == 34:
+		olio = PepperCarrot(comic)
 
 	else:
 		olio = Sarjis(comic)
@@ -103,8 +111,8 @@ def Looper(comic):
 		if "short" in sys.argv and count > 2:
 			return True
 
-		if count > 20: 
-		# ladataan korkeintaan 2000 strippiä per sarjis per ajo
+		if count > 200: 
+		# ladataan korkeintaan 200 strippiä per sarjis per ajo
 		# estää bugi ikiloopit
 			return True
 	#except Exception, e:

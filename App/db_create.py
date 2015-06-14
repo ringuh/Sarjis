@@ -203,7 +203,7 @@ coms = [
 		6, # vaihda in future
 		u"http://www.sarjis.info/sarjakuvat/wulffmorgenthaler/95/"
 	),
-
+	# GO COMICS
 	Sarjakuva(
 		u"Lassi ja Leevi", 
 		u"lassi",
@@ -213,6 +213,35 @@ coms = [
 		u"http://www.gocomics.com/calvinandhobbes/2014/06/13",
 		True
 	),
+	Sarjakuva(
+		u"The Flying MCCoys", 
+		u"mccoys",
+		u"http://www.gocomics.com/theflyingmccoys/", 
+		u"Glenn and Gary McCoy", 
+		20, # vaihda in future
+		u"http://www.gocomics.com/theflyingmccoys/2012/06/01",
+		True
+	),
+	Sarjakuva(
+		u"Pearls Before Swine", 
+		u"pearls",
+		u"http://www.gocomics.com/pearlsbeforeswine/", 
+		u"Stephan Pastis", 
+		20, # vaihda in future
+		u"http://www.gocomics.com/pearlsbeforeswine/2012/06/01",
+		True
+	),
+	Sarjakuva(
+		u"9 Chickweed Lane", 
+		u"9chickweedlane",
+		u"http://www.gocomics.com/9chickweedlane", 
+		u"Brooke McEldowney", 
+		20, # vaihda in future
+		u"http://www.gocomics.com/9chickweedlane/2012/06/01",
+		True
+	),
+
+	# END OF GO COMICS
 	Sarjakuva(
 		u"Penny Arcade", 
 		u"pennyarcade",
@@ -429,6 +458,67 @@ coms = [
 		u"Ashley Cope", 
 		30,
 		u"http://www.casualvillain.com/Unsounded/comic/ch01/ch01_01.html"
+	),
+
+	Sarjakuva(
+		u"C-Section", 
+		u"csection",
+		u"http://www.csectioncomics.com/", 
+		u"", 
+		11,
+		u"http://www.csectioncomics.com/2010/04/one-day-in-country.html"
+	),
+
+	Sarjakuva(
+		u"Merkworks", 
+		u"merkworks",
+		u"http://mercworks.net/", 
+		u"Dave Mercier", 
+		9,
+		u"http://mercworks.net/comicland/a-comic/"
+	),
+
+	Sarjakuva(
+		u"Extra Fabulous", 
+		u"extrafabulouscomics",
+		u"http://extrafabulouscomics.com/", 
+		u"ZMS", 
+		11,
+		u"http://extrafabulouscomics.com/comic/buttfly/"
+	),
+	Sarjakuva(
+		u"Catsu The Cat", 
+		u"catsu",
+		u"http://www.catsuthecat.com/blogs/comics/", 
+		u"Daria", 
+		31,
+		u"http://www.catsuthecat.com/blogs/comics/"
+	),
+
+	Sarjakuva(
+		u"The Perry Bible Fellowship", 
+		u"pbf",
+		u"http://pbfcomics.com", 
+		u"Daria", 
+		32,
+		u"http://pbfcomics.com/1/"
+	),
+
+	Sarjakuva(
+		u"Dilbert", 
+		u"dilbert",
+		u"http://dilbert.com", 
+		u"Scott Adams", 
+		33,
+		u"http://dilbert.com/strip/2015-01-11"
+	),
+	Sarjakuva(
+		u"Pepper and Carrot", 
+		u"peppercarrot",
+		u"http://www.peppercarrot.com/", 
+		u"David Revoy", 
+		34,
+		u"http://www.peppercarrot.com/en/static6/sources"
 	),
 
 

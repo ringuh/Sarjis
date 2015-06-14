@@ -18,13 +18,16 @@ class PainTrain(Sarjis):
 		src = img["src"]
 		tmp = src.split("/")
 		kuvan_nimi = tmp[len(tmp)-1] # muodostetaan nimi
+
+		if not "http:" in src:
+			src = "http:"+src
 		#print kuvan_nimi, src
-		return dict(nimi=kuvan_nimi, src=img["src"])
+		return dict(nimi=kuvan_nimi, src=src)
 
 
 	def Next(self):
 		next = self.soup.find("a", { "class" : "comic-nav-next" })
-
+	
 		if next is not None:
 			return next["href"]
 

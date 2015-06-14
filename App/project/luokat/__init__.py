@@ -10,7 +10,6 @@ from Explosm import Explosm
 from Dragonarte import Dragonarte
 from PainTrain import PainTrain
 from HappleTea import HappleTea
-from Skadi import Skadi
 from VGCats import VGCats
 from PocketPrinsesses import PocketPrinsesses
 from NerfNow import NerfNow
@@ -33,3 +32,8 @@ from AvasDemon import AvasDemon
 from Machismo import Machismo
 from Interrobang import Interrobang
 from Unsounded import Unsounded
+from CSection import CSection
+from Catsu import Catsu
+from PerryBible import PerryBible
+from Dilbert import Dilbert
+from PepperCarrot import PepperCarrot

@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 from project import db, app
 from bs4 import BeautifulSoup
-import datetime, urllib, os, requests, hashlib, urllib2
+import datetime, urllib, urllib2, os, requests, hashlib
 from project.luokat.Sarjis import Sarjis
 from project.models import Strippi
 
-class AvasDemon(Sarjis):
-	# SARJIS.info parseri, koska ctrlaltdel jotenkin suojattu?
+class Catsu(Sarjis):
 
 	def __init__(self, sarjakuva, urli=None ):
 		Sarjis.__init__(self, sarjakuva, urli)
@@ -14,7 +13,6 @@ class AvasDemon(Sarjis):
 	def Kuva(self):
 		src = None
 		kuvan_nimi = None
-
 		return dict(nimi=kuvan_nimi, src=src)
 		
 
@@ -26,24 +24,16 @@ class AvasDemon(Sarjis):
 		if sarjakuva is not None: # initoidaan uudella urlilla
 			self.Init(sarjakuva, url)
 
-		kuvat = [".jpg", ".jpeg", ".gif", ".png", ".svg"]
+		ul = self.soup.find("ul", {"class":"latest-blog-posts-list"})
+		images = ul.find_all("img")
+		for img in images:
+			if not "comic" in img["src"]:
+				continue
 
-		div = self.soup.find(id="chapters")
-		#print div
-		#return
-
-		links = div.find_all("a")
-		#print links
-		arr = []
-		for link in links:
-			if "page=" in link["href"]:
-				text, nr = link["href"].split("=")
-				arr.append(nr)
-		arr.sort()
-		for n in arr:
-			url = u"{}pages/{}.png".format(self.sarjakuva.url, n)
-			nimi = u"{}.png".format(n)
-			#print url, nimi
+			url, extra = img["src"].split("?")
+			kuva = url.split("/")
+			nimi = kuva[len(kuva)-1] # haetaan nimi
+			
 			polku = os.path.join(app.config["SARJAKUVA_FOLDER"], self.sarjakuva.lyhenne)
 			polku = os.path.join(polku, nimi)
 
@@ -87,7 +77,6 @@ class AvasDemon(Sarjis):
 				self.sarjakuva.last_url = self.urli
 
 				db.session.commit()
+			
 
 		return None
-
-	
