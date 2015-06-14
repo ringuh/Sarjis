@@ -50,7 +50,7 @@ def Looper(comic):
 	elif comic.parseri == 9:
 		olio = PainTrain(comic)
 	elif comic.parseri == 10:
-		olio = HappleTea(comic)
+		olio = Gunshow(comic)
 	elif comic.parseri == 11:
 		olio = HappleTea(comic)
 	elif comic.parseri == 12:
@@ -73,8 +73,8 @@ def Looper(comic):
 		olio = LassiLeevi(comic)
 	elif comic.parseri == 21:
 		olio = PennyArcade(comic)
-	elif comic.parseri == 22:
-		olio = Gunshow(comic)
+	#elif comic.parseri == 22:
+	#	olio = Gunshow(comic)
 	#elif comic.parseri == 20:
 	#	olio = Wulfmorgenthaler(comic)
 

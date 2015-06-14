@@ -12,7 +12,7 @@ class Skadi(Sarjis):
 	def Kuva(self):
 		kuvan_nimi = None
 		src = None
-
+		print self.soup
 		div = self.soup.find(id="comic-1")
 		img = div.find("img")
 		kuva = img["src"].split("/")

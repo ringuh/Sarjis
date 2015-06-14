@@ -12,7 +12,7 @@ class HappleTea(Sarjis):
 	def Kuva(self):
 		kuvan_nimi = None
 		src = None
-
+		
 		div = self.soup.find(id="comic")
 		img = div.find("img")
 		kuva = img["src"].split("/")

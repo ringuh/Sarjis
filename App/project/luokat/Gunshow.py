@@ -13,7 +13,6 @@ class Gunshow(Sarjis):
 		kuvan_nimi = None
 		src = None
 
-		print self.soup
 		div = self.soup.find(id="comic")
 		img = div.find("img", {"class": "strip"})
 		kuva = img["src"].split("/")
