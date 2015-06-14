@@ -143,5 +143,10 @@ db.session.add(Sarjakuva(u"Penny Arcade",
 				21,
 				u"http://www.penny-arcade.com/comic/1998/11/18" ))
 
+#db.session.add(Sarjakuva(u"Gunshow", 
+#				u"http://www.gunshowcomic.com/", 
+#				u"KC Green", 
+#				22,
+#				u"http://www.gunshowcomic.com/1" ))
 
 db.session.commit()
