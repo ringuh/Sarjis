@@ -16,6 +16,7 @@ class GC(Sarjis):
 		img = self.soup.find(id="strip")
 		kuva = img["src"].split("/")
 		kuvan_nimi = kuva[len(kuva)-1] # haetaan nimi
+		kuvan_nimi = "qc{}_{}".format(self.sarjakuva.Max()+1, kuvan_nimi)
 		img["src"] = img["src"].replace("./", "")
 		src = u"{}{}".format(self.sarjakuva.url, img["src"])
 		
