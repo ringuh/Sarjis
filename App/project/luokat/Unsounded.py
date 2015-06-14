@@ -32,10 +32,16 @@ class Unsounded(Sarjis):
 		
 
 	def Next(self):
-		link = self.soup.find("a", {"class": "forward"})
-		if ".html" in link["href"]:
+		links = self.soup.find_all("a")
+
+		for link in links:
+			tt = link.get("class")
+			if tt is not None and "forward" in tt and ".html" in link["href"]:
+				if not "http" in link["href"]:
+					return u"{}/{}".format(self.t_url, link["href"])
+				return link["href"]
 			
-			return u"{}/{}".format(self.t_url, link["href"])
+			
 
 		
 		return None

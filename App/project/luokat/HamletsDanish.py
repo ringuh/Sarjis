@@ -16,7 +16,7 @@ class HamletsDanish(Sarjis):
 		
 		div = self.soup.find("noscript")
 		img = div.find("img")
-		print img
+		#print img
 		kuva = img["src"].split("/")
 		kuvan_nimi = kuva[len(kuva)-1] # haetaan nimi
 		src = u"{}{}".format("", img["src"])
@@ -29,8 +29,13 @@ class HamletsDanish(Sarjis):
 
 	def Next(self):
 		link = self.soup.find("a", {"class": "next-btn"})
-		if link is not None and "href" in link and link["href"] != "#":
-				return u"{}{}".format("http://clayyount.com/", link["href"])
+		
+		try:
+			if link is not None and link["href"] != "#":
+				return u"{}{}".format("http://clayyount.com", link["href"])
+		except Exception, e:
+			print e
+		
 		
 		return None
 

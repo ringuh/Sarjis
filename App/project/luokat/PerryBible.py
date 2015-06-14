@@ -26,9 +26,14 @@ class PerryBible(Sarjis):
 		
 
 	def Next(self):
-		link = self.soup.find(id="older")
-		if link is not None and link["href"] != "#":
-			return u"{}{}".format(self.sarjakuva.url, link["href"])
+		
+		link = self.soup.find_all("a")
+		for i in link:
+			img = i.find("img")
+			
+			if img is not None and "newer" in img["src"].lower():
+				if i["href"] != "#":
+					return u"{}{}".format(self.sarjakuva.url, i["href"])
 		
 		return None
 
