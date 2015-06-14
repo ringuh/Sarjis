@@ -10,10 +10,12 @@ class Sarjakuva(db.Model):
 
 	id = db.Column(db.Integer, primary_key=True)
 	nimi = db.Column(db.UnicodeText)
+	parseri = db.Column(db.Integer, default=0)
+	lyhenne = db.Column(db.UnicodeText, nullable=False)
 	author = db.Column(db.UnicodeText)
 	url = db.Column(db.UnicodeText)
 	last_url = db.Column(db.UnicodeText)
-	parseri = db.Column(db.Integer)
+	more = db.Column(db.Boolean, default=False)
 	interval = db.Column(db.Integer, default=6) # tunteja
 	last_parse = db.Column(db.DateTime)
 	date_created = db.Column(db.DateTime, default=datetime.datetime.now)
@@ -26,12 +28,15 @@ class Sarjakuva(db.Model):
 	stripit = relationship("Strippi", lazy="dynamic", backref="sarjakuva")
 
 
-	def __init__(self, nimi, url=None, author=None, parseri=None, last_url=None ):
+	def __init__(self, nimi, lyhenne, url, author=None, 
+						 parseri=None, last_url=None, more=False ):
 		self.nimi = nimi
+		self.lyhenne = lyhenne
 		self.url = url
 		self.author = author
 		self.parseri = parseri
 		self.last_url = last_url
+		self.more = more
 
 
 	def __repr__(self):	

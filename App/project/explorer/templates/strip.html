@@ -11,18 +11,18 @@
 	{% set next = strip.order+1 %}
 	{% set max = comic.Max() %}
 	{% if prev > 0 %}
-	<a href="/{{ comic.nimi }}/1/">
+	<a href="/{{ comic.lyhenne }}/1/">
 		<span class="glyphicons x2 left glyphicons-step-backward"></span>
 	</a>
-	<a href="/{{ comic.nimi }}/{{ prev }}/">
+	<a href="/{{ comic.lyhenne }}/{{ prev }}/">
 		<span class="glyphicons x2  left glyphicons-rewind"></span>
 	</a>
 	{% endif %}
 	{% if next <= max %}
-	<a href="/{{ comic.nimi }}/{{ max }}/">
+	<a href="/{{ comic.lyhenne }}/{{ max }}/">
 		<span class="glyphicons x2 right glyphicons-step-forward"></span>
 	</a>
-	<a href="/{{ comic.nimi }}/{{ next }}/">
+	<a href="/{{ comic.lyhenne }}/{{ next }}/">
 		<span class="glyphicons x2 right glyphicons-forward"></span>
 	</a>
 
@@ -31,7 +31,7 @@
 	</div>
 	<a href="{{ strip.url }}">
 	<img src="{{ url_for('static', 
-			filename='sarjakuvat/'+comic.nimi+'/'+strip.filename )}}" />
+			filename='sarjakuvat/'+comic.lyhenne+'/'+strip.filename )}}" />
 	</a>
 </div>
 
@@ -43,14 +43,14 @@
     	{% if prev > 0 %}
         case 37: // left
         e.preventDefault(); // prevent the default action (scroll / move caret)
-        window.open("/{{ comic.nimi }}/{{ prev }}/", "_self")
+        window.open("/{{ comic.lyhenne }}/{{ prev }}/", "_self")
         break;
         {% endif %}
 
         {% if next <= max %}
         case 39: // right
         e.preventDefault(); // prevent the default action (scroll / move caret)
- 		window.open("/{{ comic.nimi }}/{{ next }}/", "_self")
+ 		window.open("/{{ comic.lyhenne }}/{{ next }}/", "_self")
         break;
         {% endif %}
         default: return; // exit this handler for other keys

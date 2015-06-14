@@ -24,3 +24,12 @@ from Wulffmorgenthaler import Wulffmorgenthaler
 from LassiLeevi import LassiLeevi
 from PennyArcade import PennyArcade
 from Gunshow import Gunshow
+from JohnnyWander import JohnnyWander
+from Floabc import Floabc
+from Cheerup import Cheerup
+from LoveMeNice import LoveMeNice
+from HamletsDanish import HamletsDanish
+from AvasDemon import AvasDemon
+from Machismo import Machismo
+from Interrobang import Interrobang
+from Unsounded import Unsounded

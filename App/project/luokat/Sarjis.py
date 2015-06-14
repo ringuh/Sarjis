@@ -37,8 +37,10 @@ class Sarjis(object):
 			return self.Next()
 	
 		kuva["src"] = url_fix(kuva["src"])
+		kuva["rnimi"] = kuva["nimi"]
+		kuva["nimi"] = u"{}{}_{}".format(self.sarjakuva.lyhenne, self.sarjakuva.Max()+1, kuva["nimi"])
 		# päätetään minne tallennettaisiin jos tallennetaan
-		polku = os.path.join(app.config["SARJAKUVA_FOLDER"], self.sarjakuva.nimi)
+		polku = os.path.join(app.config["SARJAKUVA_FOLDER"], self.sarjakuva.lyhenne)
 		dir = os.path.dirname(polku) # luodaan sarjakuvat kansio if needed
 		try:
 			os.stat(dir)
@@ -57,12 +59,12 @@ class Sarjis(object):
 		found = db.session.query(Strippi).filter(
 				Strippi.sarjakuva_id == self.sarjakuva.id,
 				Strippi.url == self.urli,
-				Strippi.filename == kuva["nimi"]).first()
+				Strippi.rname == kuva["rnimi"]).first()
 
 		if found is None: # kuvaa ei löytynyt, tallennetaan
 			print "Tallennetaan", kuva["nimi"], kuva["src"]
 
-			headers = { 'User-Agent' : 'Mozilla/5.0' }
+			headers = { 'User-Agent' : 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36' }
 			req = urllib2.Request(kuva["src"], None, headers)
 			try:
 				f = open(polku,'wb')
@@ -70,7 +72,6 @@ class Sarjis(object):
 				f.close()
 			except Exception, e:
 				try:
-					print "2. urllib"
 					f.close()
 					f = open(polku,'wb')
 					f.write(urllib2.urlopen(kuva["src"]).read())
@@ -85,7 +86,7 @@ class Sarjis(object):
 			# lisätään kantaan tieto, että kuva on haettu
 			order = db.session.query(Strippi).filter(
 					Strippi.sarjakuva_id == self.sarjakuva.id).count()+1
-			tmp = Strippi(self.sarjakuva.id, self.urli, kuva["nimi"], order)
+			tmp = Strippi(self.sarjakuva.id, self.urli, kuva["nimi"], order, kuva["rnimi"])
 			db.session.add(tmp)
 			self.sarjakuva.last_url = self.urli
 

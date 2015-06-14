@@ -73,11 +73,24 @@ def Looper(comic):
 		olio = LassiLeevi(comic)
 	elif comic.parseri == 21:
 		olio = PennyArcade(comic)
-	#elif comic.parseri == 22:
-	#	olio = Gunshow(comic)
-	#elif comic.parseri == 20:
-	#	olio = Wulfmorgenthaler(comic)
-
+	elif comic.parseri == 22:
+		olio = JohnnyWander(comic)
+	elif comic.parseri == 23:
+		olio = Floabc(comic)
+	elif comic.parseri == 24:
+		olio = Cheerup(comic)
+	elif comic.parseri == 25:
+		olio = LoveMeNice(comic)
+	elif comic.parseri == 26:
+		olio = HamletsDanish(comic)
+	elif comic.parseri == 27:
+		olio = AvasDemon(comic)
+	elif comic.parseri == 28:
+		olio = Machismo(comic)
+	elif comic.parseri == 29:
+		olio = Interrobang(comic)
+	elif comic.parseri == 30:
+		olio = Unsounded(comic)
 
 	else:
 		olio = Sarjis(comic)
@@ -87,10 +100,10 @@ def Looper(comic):
 	while loop is not None:
 		loop = olio.Loop(comic, loop)
 		count += 1
-		if "short" in sys.argv and count > 5:
+		if "short" in sys.argv and count > 2:
 			return True
 
-		if count > 2000: 
+		if count > 20: 
 		# ladataan korkeintaan 2000 strippiä per sarjis per ajo
 		# estää bugi ikiloopit
 			return True

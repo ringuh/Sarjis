@@ -20,10 +20,10 @@
 
 {% for st in stripit %}
 <div class="sarjakuva">
-	<h3> {{ st.sarjakuva.nimi }} {{ st.Pvm() }} -- {{ st.filename }}</h3>
-	<a href="/{{ st.sarjakuva.nimi }}/{{ st.order }}/">
+	<h3> {{ st.sarjakuva.nimi }} {{ st.Pvm() }}</h3>
+	<a href="/{{ st.sarjakuva.lyhenne }}/{{ st.order }}/">
 	<img src="{{ url_for('static', 
-			filename='sarjakuvat/'+st.sarjakuva.nimi+'/'+st.filename )}}" />
+			filename='sarjakuvat/'+st.sarjakuva.lyhenne+'/'+st.filename )}}" />
 	</a><br/>
 </div>
 {% endfor %}

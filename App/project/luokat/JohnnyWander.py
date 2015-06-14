@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import datetime, urllib, os, requests, hashlib
 from project.luokat.Sarjis import Sarjis
 
-class GC(Sarjis):
+class JohnnyWander(Sarjis):
 
 	def __init__(self, sarjakuva, urli=None ):
 		Sarjis.__init__(self, sarjakuva, urli)
@@ -13,11 +13,11 @@ class GC(Sarjis):
 		kuvan_nimi = None
 		src = None
 		
-		img = self.soup.find(id="strip")
+		img = self.soup.find(id="cc-comic")
 		kuva = img["src"].split("/")
 		kuvan_nimi = kuva[len(kuva)-1] # haetaan nimi
 		img["src"] = img["src"].replace("./", "")
-		src = u"{}{}".format(self.sarjakuva.url, img["src"])
+		src = u"{}".format(img["src"])
 		
 		
 		return dict(nimi=kuvan_nimi, src=src)
@@ -26,12 +26,9 @@ class GC(Sarjis):
 		
 
 	def Next(self):
-		div = self.soup.find(id="comicnav")
-		links = div.find_all("a")
-		for link in links:
-			if link.text.strip() == "Next" and link["href"] != "#":
-				return u"{}{}".format(self.sarjakuva.url, link["href"])
-		
+		link = self.soup.find("a", {"class": "next"})
+		if link is not None and link["href"] != "#":
+			return link["href"]
 		
 		return None
 

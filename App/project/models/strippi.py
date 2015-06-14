@@ -13,6 +13,7 @@ class Strippi(db.Model):
 	url = db.Column(db.UnicodeText)
 	filename = db.Column(db.UnicodeText)
 	order = db.Column(db.Integer, default=1)
+	rname = db.Column(db.UnicodeText)
 	date_created = db.Column(db.DateTime, default=datetime.datetime.now)
 	#joukkue_id = db.Column(db.Integer, ForeignKey('joukkue.id'), nullable=True)
 	
@@ -20,11 +21,12 @@ class Strippi(db.Model):
 	
 
 
-	def __init__(self, sarjakuva_id, url, filename, order):
+	def __init__(self, sarjakuva_id, url, filename, order, rname):
 		self.sarjakuva_id = sarjakuva_id
 		self.url = url
 		self.filename = filename
 		self.order = order
+		self.rname = rname
 		
 		
 

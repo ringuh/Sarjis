@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 from project import db, app
 from bs4 import BeautifulSoup
-import datetime, urllib, os, requests, hashlib
+import datetime, urllib, os, requests, hashlib, urllib2
 from project.luokat.Sarjis import Sarjis
 from project.models import Strippi
 
-class Dragonarte(Sarjis):
-	# erilainen parseri. parseaa tiedostolistausta
+class AvasDemon(Sarjis):
+	# SARJIS.info parseri, koska ctrlaltdel jotenkin suojattu?
 
 	def __init__(self, sarjakuva, urli=None ):
 		Sarjis.__init__(self, sarjakuva, urli)
@@ -15,21 +15,10 @@ class Dragonarte(Sarjis):
 		src = None
 		kuvan_nimi = None
 
-		img = self.soup.find(id="main-comic")
-		#src = u"http:{}".format(img["src"])
-		#kuva = img["src"].split("/")
-		#kuvan_nimi = kuva[len(kuva)-1] # haetaan nimi
-			
-		#print kuvan_nimi, src
 		return dict(nimi=kuvan_nimi, src=src)
 		
 
-	def Next(self):
-		#div = self.soup.find("a", { "class": "next-comic" })
-		
-		#if div is not None and len(div["href"]) > 1:
-		#	return u"{}{}".format(self.sarjakuva.url, div["href"])
-		
+	def Next(self):		
 		return None
 
 
@@ -38,14 +27,23 @@ class Dragonarte(Sarjis):
 			self.Init(sarjakuva, url)
 
 		kuvat = [".jpg", ".jpeg", ".gif", ".png", ".svg"]
-		links = self.soup.find_all("a")
+
+		div = self.soup.find(id="chapters")
+		#print div
+		#return
+
+		links = div.find_all("a")
+		#print links
+		arr = []
 		for link in links:
-			nimi = link["href"]
-			#print nimi
-			arr = nimi.split(".")
-			if not "."+arr[len(arr)-1] in kuvat: # ei oikeanlainen kuva
-				continue
-			url = u"{}/{}".format(self.urli, nimi)
+			if "page=" in link["href"]:
+				text, nr = link["href"].split("=")
+				arr.append(nr)
+		arr.sort()
+		for n in arr:
+			url = u"{}pages/{}.png".format(self.sarjakuva.url, n)
+			nimi = u"{}.png".format(n)
+			print url, nimi
 			polku = os.path.join(app.config["SARJAKUVA_FOLDER"], self.sarjakuva.lyhenne)
 			polku = os.path.join(polku, nimi)
 
@@ -64,9 +62,22 @@ class Dragonarte(Sarjis):
 
 			if found is None: # kuvaa ei löytynyt, tallennetaan
 				print "Tallennetaan", nimi
-				f = open(polku,'wb')
-				f.write(urllib.urlopen(url).read())
-				f.close()
+	
+				headers = { 'User-Agent' : 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36' }
+				req = urllib2.Request(url, None, headers)
+				try:
+					f = open(polku,'wb')
+					f.write(urllib2.urlopen(req).read())
+					f.close()
+				except Exception, e:
+					try:
+						f.close()
+						f = open(polku,'wb')
+						f.write(urllib2.urlopen(url).read())
+						f.close()
+					except Exception, e:
+						print "tallennus epäonnistui"
+						#return self.Next()
 
 				# lisätään kantaan tieto, että kuva on haettu
 				order = db.session.query(Strippi).filter(
@@ -78,3 +89,5 @@ class Dragonarte(Sarjis):
 				db.session.commit()
 
 		return None
+
+	

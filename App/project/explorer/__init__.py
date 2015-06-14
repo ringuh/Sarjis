@@ -16,7 +16,7 @@ def Comic(f):
 	@wraps(f)
 	def decorated_function(*args, **kwargs):
 		n = db.session.query(SK).filter(
-				func.lower(SK.nimi) == func.lower(kwargs["comic"])
+				func.lower(SK.lyhenne) == func.lower(kwargs["comic"])
 			).first()
 		if n is None:
 			flash(u"Tuntematon sarjakuva")
