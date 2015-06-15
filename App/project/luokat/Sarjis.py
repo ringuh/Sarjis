@@ -59,7 +59,8 @@ class Sarjis(object):
 		found = db.session.query(Strippi).filter(
 				Strippi.sarjakuva_id == self.sarjakuva.id,
 				Strippi.url == self.urli,
-				Strippi.rname == kuva["rnimi"]).first()
+				#Strippi.rname == kuva["rnimi"]
+				).first()
 
 		if found is None: # kuvaa ei löytynyt, tallennetaan
 			print "Tallennetaan", kuva["nimi"], kuva["src"]

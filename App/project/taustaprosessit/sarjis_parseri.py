@@ -111,7 +111,7 @@ def Looper(comic):
 		if "short" in sys.argv and count > 2:
 			return True
 
-		if count > 200: 
+		if count > 2000: 
 		# ladataan korkeintaan 200 strippiä per sarjis per ajo
 		# estää bugi ikiloopit
 			return True
