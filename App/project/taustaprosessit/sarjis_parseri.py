@@ -8,7 +8,7 @@ import sys
 
 
 def run():
-	sarjakuvat = db.session.query(SK).all()
+	sarjakuvat = db.session.query(SK).order_by(SK.id).all()
 
 	for i in sarjakuvat:
 		print i.nimi
@@ -21,12 +21,13 @@ def run():
 				raise e
 			
 		print "----\n"
-	print "End"
+	#print "End"
 	return "JOU"
 
 
 def Looper(comic):
-
+	#print "\n"+comic.nimi
+	#return None
 	if "nr" in sys.argv:
 		if comic.parseri != int(sys.argv[3]):
 			return
@@ -83,7 +84,7 @@ def Looper(comic):
 		olio = LoveMeNice(comic)
 	elif comic.parseri == 26:
 		olio = HamletsDanish(comic)
-	elif comic.parseri == 27:
+	elif comic.parseri == 27 and not "short" in sys.argv:
 		olio = AvasDemon(comic)
 	elif comic.parseri == 28:
 		olio = Machismo(comic)

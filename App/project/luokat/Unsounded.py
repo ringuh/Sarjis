@@ -13,9 +13,17 @@ class Unsounded(Sarjis):
 	def Kuva(self):
 		kuvan_nimi = None
 		src = None
-		
+		img = None
 		div = self.soup.find(id="comic")
-		img = div.find("img")
+		if div is None:
+			images = self.soup.find_all("img")
+			for i in images:
+				if "pageart" in i["src"]:
+					img = i
+					break
+		else:
+			img = div.find("img")
+
 		kuva = img["src"].split("/")
 		kuvan_nimi = kuva[len(kuva)-1] # haetaan nimi
 		src = img["src"]
@@ -25,6 +33,8 @@ class Unsounded(Sarjis):
 		self.t_url = "/".join(url)
 		src = u"{}/{}".format(self.t_url, src)
 		
+		if kuvan_nimi is None:
+			return False
 		
 		return dict(nimi=kuvan_nimi, src=src)
 
@@ -35,7 +45,8 @@ class Unsounded(Sarjis):
 		links = self.soup.find_all("a")
 
 		for link in links:
-			tt = link.get("class")
+			#print link
+			tt = link.text.strip().lower()
 			if tt is not None and "forward" in tt and ".html" in link["href"]:
 				if not "http" in link["href"]:
 					return u"{}/{}".format(self.t_url, link["href"])
