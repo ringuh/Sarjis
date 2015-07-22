@@ -18,7 +18,7 @@ def run():
 				Looper(i)
 			except Exception, e:
 				print i.nimi, e
-				raise e
+				#raise e
 			
 		print "----\n"
 	#print "End"

@@ -14,11 +14,12 @@ class Interrobang(Sarjis):
 		kuvan_nimi = None
 		src = None
 		
-		div = self.soup.find(id="comic01")
+		#div = self.soup.find(id="comic01")
+		div = self.soup.find("div", { "class": "comic-content"})
 		img = div.find("img")
 		kuva = img["src"].split("/")
 		kuvan_nimi = kuva[len(kuva)-1] # haetaan nimi
-		src = img["src"]
+		src = u"{}{}".format("http://www.interrobangstudios.com/", img["src"])
 		
 		
 		return dict(nimi=kuvan_nimi, src=src)
@@ -27,7 +28,7 @@ class Interrobang(Sarjis):
 		
 
 	def Next(self):
-		div = self.soup.find(id="comic-nav01")
+		div = self.soup.find("div", { "class": "comic-rightnav"})
 		links = div.find_all("a")
 		for link in links:
 			img = link.find("img")
@@ -36,7 +37,7 @@ class Interrobang(Sarjis):
 					if "http:" in link["href"]:
 						return link["href"]
 					else:
-						return u"{}{}".format(self.sarjakuva.url, link["href"])
+						return u"{}{}".format("http://www.interrobangstudios.com/", link["href"])
 
 		
 		return None
