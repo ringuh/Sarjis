@@ -521,7 +521,48 @@ coms = [
 		u"http://www.peppercarrot.com/en/static6/sources"
 	),
 
+	Sarjakuva(
+		u"Berkeley Mews", 
+		u"berkeleymews",
+		u"http://www.berkeleymews.com/", 
+		u"benzaehringer at gmail.com", 
+		11,
+		u"http://www.berkeleymews.com/?p=19"
+	),
+	Sarjakuva(
+		u"Completely Serious Comics", 
+		u"completelyseriouscomics",
+		u"http://completelyseriouscomics.com/", 
+		u"completelyseriouscomics", 
+		11,
+		u"http://completelyseriouscomics.com/?p=6"
+	),
+	Sarjakuva(
+		u"Pictures in Boxes", 
+		u"picturesinboxes",
+		u"http://www.picturesinboxes.com/", 
+		u"picturesinboxes", 
+		11,
+		u"http://www.picturesinboxes.com/2013/10/26/tetris/"
+	),
 
+	Sarjakuva(
+		u"Rational Comics", 
+		u"rational",
+		u"http://www.rationalcomics.com/", 
+		u"Joshua Sim", 
+		35,
+		u"http://www.rationalcomics.com/001-mountain-moving-man/"
+	),
+
+	Sarjakuva(
+		u"Loading Artist", 
+		u"loadingartist",
+		u"http://www.loadingartist.com/", 
+		u"GREGOR CZAYKOWSK", 
+		36,
+		u"http://www.loadingartist.com/comic/born/"
+	),
 ]
 # sarjikset
 for i in coms:

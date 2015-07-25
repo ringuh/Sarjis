@@ -100,6 +100,10 @@ def Looper(comic):
 		olio = Dilbert(comic)
 	elif comic.parseri == 34:
 		olio = PepperCarrot(comic)
+	elif comic.parseri == 35:
+		olio = Rational(comic)
+	elif comic.parseri == 36:
+		olio = LoadingArtist(comic)
 
 	else:
 		olio = Sarjis(comic)

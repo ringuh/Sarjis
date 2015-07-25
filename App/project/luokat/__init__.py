@@ -37,3 +37,5 @@ from Catsu import Catsu
 from PerryBible import PerryBible
 from Dilbert import Dilbert
 from PepperCarrot import PepperCarrot
+from Rational import Rational
+from LoadingArtist import LoadingArtist
