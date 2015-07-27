@@ -563,6 +563,26 @@ coms = [
 		36,
 		u"http://www.loadingartist.com/comic/born/"
 	),
+
+	Sarjakuva(
+		u"Channelate", 
+		u"channelate",
+		u"http://www.channelate.com/", 
+		u"Ryan Hudson", 
+		11,
+		u"http://www.channelate.com/2008/02/13/wear-a-clean-shirt/"
+	),
+
+	Sarjakuva(
+		u"Saturday Morning Breakfast Cereal", 
+		u"smbc",
+		u"http://www.smbc-comics.com/", 
+		u"Zach Weiner", 
+		37,
+		u"http://www.smbc-comics.com/index.php?id=3768"
+	),
+
+
 ]
 # sarjikset
 for i in coms:
