@@ -582,6 +582,15 @@ coms = [
 		u"http://www.smbc-comics.com/index.php?id=3768"
 	),
 
+	Sarjakuva(
+		u"Its the Tie", 
+		u"itsthetie",
+		u"http://itsthetie.com/", 
+		u"ItstheTie", 
+		38,
+		u"http://itsthetie.com/?comic=no-world-for-a-squirrel-4"
+	),
+
 
 ]
 # sarjikset

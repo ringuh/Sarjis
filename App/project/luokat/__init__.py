@@ -40,3 +40,4 @@ from PepperCarrot import PepperCarrot
 from Rational import Rational
 from LoadingArtist import LoadingArtist
 from SMBC import SMBC
+from ItsTheTie import ItsTheTie

@@ -4,7 +4,7 @@ http://rice-boy.com/vattu/index.php?c=672
 http://abominable.cc/post/44164796353/episode-one
 http://www.awkwardzombie.com/index.php?page=0&comic=071315
 http://strongfemaleprotagonist.com/issue-1/page-3/
-http://www.smbc-comics.com/
+
 http://www.pvponline.com/comic/2015/07/24/off-the-hook
 http://www.powernapcomic.com/
 http://www.myextralife.com/
@@ -15,6 +15,7 @@ http://www.amazingsuperpowers.com/
 http://www.gocomics.com/explore/comics tuhat sarjista 
 
 http://existentialcomics.com/comic/86
+itsthetie.com
 
 http://batlesbo.deviantart.com/art/Cat-got-your-tongue-287561311
 http://irenemartini.deviantart.com/gallery/48139165/Comic-Strips # ei päivity
@@ -38,8 +39,11 @@ http://www.mcgibs.iseenothing.com/images/gallery/comics/ # ei sisältöä
 ----
 
 added:
-loadingartist.com
 
+
+
+loadingartist.com
+http://www.smbc-comics.com/
 rationalcomics
 http://www.picturesinboxes.com/
 completelyseriouscomics

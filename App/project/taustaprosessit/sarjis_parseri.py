@@ -106,6 +106,9 @@ def Looper(comic):
 		olio = LoadingArtist(comic)
 	elif comic.parseri == 37:
 		olio = SMBC(comic)
+	elif comic.parseri == 38:
+		olio = ItsTheTie(comic)
+
 
 	else:
 		olio = Sarjis(comic)
