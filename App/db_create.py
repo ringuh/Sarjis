@@ -600,6 +600,16 @@ coms = [
 		u"http://www.awkwardzombie.com/index.php?page=0&comic=092006"
 	),
 
+	Sarjakuva(
+		u"Power Nap", 
+		u"powernap",
+		u"http://www.powernapcomic.com/", 
+		u"Maritza Campos + Bachan", 
+		40,
+		u"http://www.powernapcomic.com/d/20110617.html"
+	),
+
+
 
 ]
 # sarjikset

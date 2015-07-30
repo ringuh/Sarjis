@@ -110,6 +110,9 @@ def Looper(comic):
 		olio = ItsTheTie(comic)
 	elif comic.parseri == 39:
 		olio = AwkwardZombie(comic)
+	elif comic.parseri == 40:
+		olio = PowerNap(comic)
+
 
 	
 
