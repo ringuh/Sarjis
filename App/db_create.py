@@ -609,6 +609,16 @@ coms = [
 		u"http://www.powernapcomic.com/d/20110617.html"
 	),
 
+	Sarjakuva(
+		u"Extra Life", 
+		u"extralife",
+		u"http://www.myextralife.com/", 
+		u"Scott Johnson", 
+		41,
+		u"http://www.myextralife.com/comic/06172001/"
+	),
+
+
 
 
 ]
