@@ -45,3 +45,4 @@ from AwkwardZombie import AwkwardZombie
 from PowerNap import PowerNap
 from ExtraLife import ExtraLife
 from PlayerVSPlayer import PlayerVSPlayer
+from Abominable import Abominable

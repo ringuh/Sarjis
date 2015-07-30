@@ -627,6 +627,33 @@ coms = [
 		u"http://www.pvponline.com/comic/2015/06/01/birds-of-a-feather1"
 	),
 
+	Sarjakuva(
+		u"Evil Inc.", 
+		u"evilinc",
+		u"http://evil-inc.com/", 
+		u"Brad J. Guigar", 
+		9,
+		u"http://evil-inc.com/comic/santa-villain-poem-1/"
+	),
+
+	Sarjakuva(
+		u"The Abominable", 
+		u"abominable",
+		u"http://abominable.cc/", 
+		u"Charles Christopher", 
+		43,
+		u"http://abominable.cc/post/44164796353/episode-one"
+	),
+
+	Sarjakuva(
+		u"Girls with Slingshots", 
+		u"girlswithslingshots",
+		u"http://www.girlswithslingshots.com/", 
+		u"Danielle Corsetto", 
+		37,
+		u"http://www.girlswithslingshots.com/comic/gws-chaser-99/"
+	),
+
 
 
 
