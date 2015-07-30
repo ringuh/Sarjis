@@ -618,6 +618,15 @@ coms = [
 		u"http://www.myextralife.com/comic/06172001/"
 	),
 
+	Sarjakuva(
+		u"Player vs. Player", 
+		u"pvponline",
+		u"http://www.pvponline.com/", 
+		u"Scott R. Kurtz", 
+		42,
+		u"http://www.pvponline.com/comic/2015/06/01/birds-of-a-feather1"
+	),
+
 
 
 

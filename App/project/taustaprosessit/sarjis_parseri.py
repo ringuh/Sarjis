@@ -114,6 +114,8 @@ def Looper(comic):
 		olio = PowerNap(comic)
 	elif comic.parseri == 41:
 		olio = ExtraLife(comic)
+	elif comic.parseri == 42:
+		olio = PlayerVSPlayer(comic)
 
 
 	
