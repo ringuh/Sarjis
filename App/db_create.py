@@ -591,6 +591,15 @@ coms = [
 		u"http://itsthetie.com/?comic=no-world-for-a-squirrel-4"
 	),
 
+	Sarjakuva(
+		u"Awkward Zombie", 
+		u"awkwardzombie",
+		u"http://www.awkwardzombie.com/", 
+		u"Katie Tiedrich", 
+		39,
+		u"http://www.awkwardzombie.com/index.php?page=0&comic=092006"
+	),
+
 
 ]
 # sarjikset

@@ -108,7 +108,10 @@ def Looper(comic):
 		olio = SMBC(comic)
 	elif comic.parseri == 38:
 		olio = ItsTheTie(comic)
+	elif comic.parseri == 39:
+		olio = AwkwardZombie(comic)
 
+	
 
 	else:
 		olio = Sarjis(comic)

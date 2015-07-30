@@ -41,3 +41,4 @@ from Rational import Rational
 from LoadingArtist import LoadingArtist
 from SMBC import SMBC
 from ItsTheTie import ItsTheTie
+from AwkwardZombie import AwkwardZombie
