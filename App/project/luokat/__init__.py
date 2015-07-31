@@ -47,3 +47,4 @@ from ExtraLife import ExtraLife
 from PlayerVSPlayer import PlayerVSPlayer
 from Abominable import Abominable
 from Existential import Existential
+from JuniorLeague8 import JuniorLeague8

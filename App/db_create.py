@@ -700,6 +700,15 @@ coms = [
 			u"http://existentialcomics.com/comic/1"
 		),
 
+	Sarjakuva(
+			u"Justice League 8", 
+			u"jl8",
+			u"http://jl8comic.tumblr.com/", 
+			u"Yale Stewart", 
+			45,
+			u"http://jl8comic.tumblr.com/post/13372482444/jl8-1-by-yale-stewart-based-on-characters-in-dc"
+		),
+
 ]
 # sarjikset
 for i in coms:
