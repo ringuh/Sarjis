@@ -682,6 +682,23 @@ coms = [
 			u"http://zenpencils.com/comic/1-ralph-waldo-emerson-make-them-cry/"
 		),
 
+	Sarjakuva(
+			u"Last Place", 
+			u"lastplace",
+			u"http://lastplacecomics.com/", 
+			u"LastPlace", 
+			9,
+			u"http://lastplacecomics.com/comic/wide-range-of-super-powers/"
+		),
+
+	Sarjakuva(
+			u"Existential Comics", 
+			u"existential",
+			u"http://existentialcomics.com/", 
+			u"unknown", 
+			44,
+			u"http://existentialcomics.com/comic/1"
+		),
 
 ]
 # sarjikset
