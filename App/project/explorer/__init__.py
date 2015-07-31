@@ -77,10 +77,17 @@ def index(pvm=None):
 	stripit = db.session.query(Strippi).filter(
 				Strippi.date_created >= today, 
 				Strippi.date_created < tomorrow,
-				~Strippi.sarjakuva_id.in_(karsitut) ).limit(100).all()
-	
+				~Strippi.sarjakuva_id.in_(karsitut) ).all()
+
 	return render_template("portal.html", page="index", 
 		dates=dates, stripit=stripit, user=current_user)
+
+@explorer_blueprint.route('/list/')
+@login_required
+def list():
+	n = db.session.query(SK).filter(
+			~SK.id.in_(current_user.getKarsitut())).order_by(SK.id).all()
+	return render_template("list.html", page="list", comics=n, user=current_user)
 
 
 @explorer_blueprint.route('/<comic>/')
@@ -95,12 +102,6 @@ def comic(comic):
 def comic_strip(comic, strip):
 	return render_template("strip.html", page=None, comic=comic, strip=strip, user=current_user)
 
-@explorer_blueprint.route('/list/')
-@login_required
-def list():
-	n = db.session.query(SK).filter(
-			~SK.id.in_(current_user.getKarsitut())).order_by(SK.id).all()
-	return render_template("list.html", page="list", comics=n, user=current_user)
 
 
 
@@ -281,3 +282,39 @@ def logout():
 	flash(u"Kirjauduit ulos")
 
 	return redirect(url_for("explorer.index"))
+
+
+@explorer_blueprint.route('/add/', methods=["POST", "GET"])
+@login_required
+def add():
+	from project.models import Sarjakuva as SK
+	if not current_user.admin:
+		return "loser";
+
+	if request.method == "GET":
+		return render_template("add.html", user=current_user)
+	else:
+		json = request.get_json(True)
+
+		tmp = json["text"].strip()
+		tmp = tmp.split("\n")
+
+		add = []
+		for i in tmp:
+			i = i.strip();
+			if i[0] == "u":
+				i = i[1:]
+
+			if i[-1] == ",":
+				i = i[:-1]
+
+			i = i.strip('"')
+
+			if not i[0] in [")", "S"] and i != "":
+				add.append(i)
+			
+		if len(add) == 6:
+			db.session.add(SK(add[0], add[1], add[2], add[3], add[4], add[5]))
+			db.session.commit()
+			
+		return jsonify(ret=add)

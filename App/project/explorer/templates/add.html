@@ -1,0 +1,36 @@
+{% extends "pohja.html" %}
+
+{% block body %}
+<div ng-controller="Ctrl">
+	<form ng-submit="AddSmth(str)">
+	<textarea ng-model="str" style="width:400px;height:100px;" placeholder="Mitä laitetaan"></textarea>
+	<button type="submit" ng-hide="str==null">
+		<span class="glyphicons glyphicons-floppy-disk"></span>
+	</button>
+
+
+	</form>
+
+
+</div>
+
+
+<script>
+	document.title = "Sarjakuvalista"
+
+	app.controller('Ctrl', function($scope, $http, $sce) {
+		$scope.AddSmth = function(str){
+
+			$http.post("/add/", JSON.stringify({text:str}))
+			.success(function(data){
+				console.log(data)
+				$scope.str = null;
+			}).error(function(err){
+				console.log(err)
+			});
+		}
+
+	});
+</script>
+
+{% endblock %}
