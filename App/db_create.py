@@ -655,6 +655,14 @@ coms = [
 	),
 
 
+	Sarjakuva(
+			u"Lets Speak English", 
+			u"letsspeakenglish",
+			u"http://www.marycagle.com/", 
+			u"Mary Cagle", 
+			22,
+			u"http://www.marycagle.com/letsspeakenglish/1-shingeki-no-kodomo"
+		),
 
 
 ]
