@@ -292,7 +292,8 @@ def add():
 		return "loser";
 
 	if request.method == "GET":
-		return render_template("add.html", user=current_user)
+		sarjikset = db.session.query(SK).order_by(desc(SK.id)).all()
+		return render_template("add.html", user=current_user, sarjikset=sarjikset)
 	else:
 		json = request.get_json(True)
 

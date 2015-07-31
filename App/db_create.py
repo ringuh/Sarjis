@@ -664,6 +664,24 @@ coms = [
 			u"http://www.marycagle.com/letsspeakenglish/1-shingeki-no-kodomo"
 		),
 
+	Sarjakuva(
+			u"Amazing Super Powers", 
+			u"amazingsuperpowers",
+			u"http://www.amazingsuperpowers.com/", 
+			u"Wes & Tony", 
+			11,
+			u"http://www.amazingsuperpowers.com/2007/09/heredity/"
+		),
+
+	Sarjakuva(
+			u"Zen Pencils", 
+			u"zenpencils",
+			u"http://zenpencils.com/", 
+			u"Wes & Tony", 
+			11,
+			u"http://zenpencils.com/comic/1-ralph-waldo-emerson-make-them-cry/"
+		),
+
 
 ]
 # sarjikset

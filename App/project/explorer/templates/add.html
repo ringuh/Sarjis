@@ -10,7 +10,12 @@
 
 
 	</form>
-
+	<br/>
+	<ul>
+		{% for i in sarjikset %}
+		<li>{{ i.id }} - {{ i.nimi }}</li>
+		{% endfor %}
+	</ul>
 
 </div>
 
@@ -24,7 +29,7 @@
 			$http.post("/add/", JSON.stringify({text:str}))
 			.success(function(data){
 				console.log(data)
-				$scope.str = null;
+				location.reload(true);
 			}).error(function(err){
 				console.log(err)
 			});
