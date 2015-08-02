@@ -48,3 +48,4 @@ from PlayerVSPlayer import PlayerVSPlayer
 from Abominable import Abominable
 from Existential import Existential
 from JuniorLeague8 import JuniorLeague8
+from UserFriendly import UserFriendly

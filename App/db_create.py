@@ -717,6 +717,24 @@ coms = [
 			9,
 			u"http://www.fowllanguagecomics.com/comic/part-of-the-process/"
 		),
+
+	Sarjakuva(
+			u"Over the Hedge", 
+			u"overthehedge",
+			u"http://www.gocomics.com/overthehedge/", 
+			u"T Lewis and Michael Fry", 
+			20,
+			u"http://www.gocomics.com/overthehedge/2015/07/30"
+		),
+
+	Sarjakuva(
+			u"User Friendly", 
+			u"userfriendly",
+			u"http://ars.userfriendly.org/", 
+			u"J.D Frazer", 
+			46,
+			u"http://ars.userfriendly.org/cartoons/?id=20150731"
+		),
 ]
 # sarjikset
 for i in coms:
