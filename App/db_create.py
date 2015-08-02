@@ -709,6 +709,14 @@ coms = [
 			u"http://jl8comic.tumblr.com/post/13372482444/jl8-1-by-yale-stewart-based-on-characters-in-dc"
 		),
 
+	Sarjakuva(
+			u"Fowl Language", 
+			u"fowllanguage",
+			u"http://www.fowllanguagecomics.com/", 
+			u"Brian Gordon", 
+			9,
+			u"http://www.fowllanguagecomics.com/comic/part-of-the-process/"
+		),
 ]
 # sarjikset
 for i in coms:

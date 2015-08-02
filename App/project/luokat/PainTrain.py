@@ -16,6 +16,8 @@ class PainTrain(Sarjis):
 
 		img = img.find("img")
 		src = img["src"]
+		if "?" in src:
+			src = src[0:src.index("?")]
 		tmp = src.split("/")
 		kuvan_nimi = tmp[len(tmp)-1] # muodostetaan nimi
 
