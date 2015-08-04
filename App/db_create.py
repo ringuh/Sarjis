@@ -735,6 +735,34 @@ coms = [
 			46,
 			u"http://ars.userfriendly.org/cartoons/?id=20150731"
 		),
+
+	Sarjakuva(
+		u"Karlsson", 
+		u"karlsson",
+		u"http://www.hs.fi/karlsson", 
+		u"Karlsson", 
+		2,
+		u"http://www.hs.fi/karlsson/s1305951536460" 
+	),
+
+	Sarjakuva(
+			u"Poorly Drawn Lines", 
+			u"poorlydrawnlines",
+			u"http://poorlydrawnlines.com/", 
+			u"Reza Farazmand", 
+			48,
+			u"http://poorlydrawnlines.com/comic/campus-characters/"
+		),
+
+	# Sarjakuva(
+	# 		u"Death Bulge", 
+	# 		u"deathbulge",
+	# 		u"http://deathbulge.com/", 
+	# 		u"Rory", 
+	# 		47,
+	# 		u"http://deathbulge.com/comics/1"
+	# 	),
+	
 ]
 # sarjikset
 for i in coms:

@@ -124,6 +124,10 @@ def Looper(comic):
 		olio = JuniorLeague8(comic)
 	elif comic.parseri == 46:
 		olio = UserFriendly(comic)
+	elif comic.parseri == 47:
+		olio = DeathBulge(comic)
+	elif comic.parseri == 48:
+		olio = PoorlyDrawn(comic)
 
 
 	

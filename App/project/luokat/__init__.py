@@ -49,3 +49,5 @@ from Abominable import Abominable
 from Existential import Existential
 from JuniorLeague8 import JuniorLeague8
 from UserFriendly import UserFriendly
+from DeathBulge import DeathBulge
+from PoorlyDrawn import PoorlyDrawn
