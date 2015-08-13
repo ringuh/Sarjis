@@ -128,6 +128,8 @@ def Looper(comic):
 		olio = DeathBulge(comic)
 	elif comic.parseri == 48:
 		olio = PoorlyDrawn(comic)
+	elif comic.parseri == 49:
+		olio = Ma3(comic)
 
 
 	

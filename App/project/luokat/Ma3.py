@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import datetime, urllib, os, requests, hashlib
 from project.luokat.Sarjis import Sarjis
 
-class Toonhole(Sarjis):
+class Ma3(Sarjis):
 
 	def __init__(self, sarjakuva, urli=None ):
 		Sarjis.__init__(self, sarjakuva, urli)
@@ -13,14 +13,14 @@ class Toonhole(Sarjis):
 		src = None
 		kuvan_nimi = None
 		
-		div = self.soup.find(id="comic")
+		div = self.soup.find(id="cc")
 		img = div.find("img")
 		src = img["src"]
 		kuva = img["src"].split("/")
 		kuvan_nimi = kuva[len(kuva)-1] # haetaan nimi
-		#print src
-		if src.index("//") == 0:
-			src = u"http:{}".format(src)
+		
+		# if src.index("//") == 0:
+		# 	src = u"http:{}".format(src)
 
 		
 		return dict(nimi=kuvan_nimi, src=src)
@@ -30,15 +30,10 @@ class Toonhole(Sarjis):
 
 	def Next(self):
 		#print "in next"
-		links = self.soup.find_all("a")
-		for link in links:
-
-			rel = link.get("rel")
-			#print rel, link["href"]
-			if rel is not None and "next" in rel:
-				if  link["href"][0] == "/":
-					link["href"] = u"{}{}".format(self.sarjakuva.url, link["href"][1:])
-				return link["href"]
+		link = self.soup.find(id="cndnext")
+		
+		if link is not None:
+			return link["href"]
 		
 		
 		return None

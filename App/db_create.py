@@ -763,6 +763,16 @@ coms = [
 			u"http://xkcd.com/1500/"
 		),
 
+	Sarjakuva(
+			u"Menage a 3", 
+			u"ma3",
+			u"http://www.ma3comic.com/", 
+			u"Giz / Dave Zero", 
+			49,
+			u"http://www.ma3comic.com/strips-ma3/for_new_readers"
+		),
+
+
 	# Sarjakuva(
 	# 		u"Death Bulge", 
 	# 		u"deathbulge",

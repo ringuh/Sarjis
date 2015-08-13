@@ -51,3 +51,4 @@ from JuniorLeague8 import JuniorLeague8
 from UserFriendly import UserFriendly
 from DeathBulge import DeathBulge
 from PoorlyDrawn import PoorlyDrawn
+from Ma3 import Ma3
