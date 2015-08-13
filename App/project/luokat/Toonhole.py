@@ -18,6 +18,10 @@ class Toonhole(Sarjis):
 		src = img["src"]
 		kuva = img["src"].split("/")
 		kuvan_nimi = kuva[len(kuva)-1] # haetaan nimi
+		print src
+		if src.index("//") == 0:
+			src = u"http:{}".format(src)
+
 		
 		return dict(nimi=kuvan_nimi, src=src)
 
@@ -32,7 +36,9 @@ class Toonhole(Sarjis):
 			rel = link.get("rel")
 			#print rel, link["href"]
 			if rel is not None and "next" in rel:
-				#print link["href"]
+				print link["href"]
+				if link["href"][0] == "/":
+					link["href"] = u"{}{}".format(self.sarjakuva.url, link["href"][1:])
 				return link["href"]
 		
 		

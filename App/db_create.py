@@ -754,6 +754,15 @@ coms = [
 			u"http://poorlydrawnlines.com/comic/campus-characters/"
 		),
 
+	Sarjakuva(
+			u"xkcd", 
+			u"xkcd",
+			u"http://xkcd.com/", 
+			u"Randall", 
+			4,
+			u"http://xkcd.com/1500/"
+		),
+
 	# Sarjakuva(
 	# 		u"Death Bulge", 
 	# 		u"deathbulge",
