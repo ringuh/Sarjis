@@ -807,6 +807,43 @@ coms = [
 			u"http://thenoobcomic.com/comic/1/"
 		),
 
+	Sarjakuva(
+			u"Looking For Group", 
+			u"lfg",
+			u"http://www.lfg.co/", 
+			u"Ryan Sohmer and Lar Desouza", 
+			9,
+			u"http://www.lfg.co/page/1/"
+		),
+
+	Sarjakuva(
+			u"Non-Player Character", 
+			u"npc",
+			u"http://www.lfg.co/", 
+			u"Ryan Sohmer and Lar Desouza", 
+			9,
+			u"http://www.lfg.co/npc/tale/1-1/"
+		),
+
+	Sarjakuva(
+			u"Tiny Dick Adventures", 
+			u"tinydickadventures",
+			u"http://www.lfg.co/", 
+			u"Ryan Sohmer and Lar Desouza", 
+			9,
+			u"http://www.lfg.co/tda/strip/1/"
+		),
+
+	Sarjakuva(
+			u"Dark Legacy", 
+			u"darklegacy",
+			u"http://www.darklegacycomics.com/", 
+			u"Arad Kedar", 
+			52,
+			u"http://www.darklegacycomics.com/1"
+		),
+
+
 
 	# Sarjakuva(
 	# 		u"Death Bulge", 

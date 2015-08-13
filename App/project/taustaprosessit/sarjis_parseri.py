@@ -134,6 +134,8 @@ def Looper(comic):
 		olio = Blastwave(comic)
 	elif comic.parseri == 51:
 		olio = StandStill(comic)
+	elif comic.parseri == 52:
+		olio = DarkLegacy(comic)
 
 
 	
