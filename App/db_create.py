@@ -771,6 +771,41 @@ coms = [
 			49,
 			u"http://www.ma3comic.com/strips-ma3/for_new_readers"
 		),
+	Sarjakuva(
+			u"Gone With the Blastwave", 
+			u"blastwave",
+			u"http://www.blastwave-comic.com/", 
+			u"Kimmo Lemetti", 
+			50,
+			u"http://www.blastwave-comic.com/index.php?p=comic&nro=1"
+		),
+
+	Sarjakuva(
+			u"The Rock Cocks", 
+			u"rockcocks",
+			u"http://www.therockcocks.com/", 
+			u"Unknown", 
+			22,
+			u"http://www.therockcocks.com/comic/page-1"
+		),
+
+	Sarjakuva(
+			u"Stand Still Stay Silent", 
+			u"standstillstaysilent",
+			u"http://www.sssscomic.com/", 
+			u"Minna Sundberg", 
+			51,
+			u"http://www.sssscomic.com/comic.php?page=1"
+		),
+
+	Sarjakuva(
+			u"The Noob", 
+			u"noob",
+			u"http://thenoobcomic.com/", 
+			u"Gianna", 
+			11,
+			u"http://thenoobcomic.com/comic/1/"
+		),
 
 
 	# Sarjakuva(

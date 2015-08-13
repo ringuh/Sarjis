@@ -130,6 +130,10 @@ def Looper(comic):
 		olio = PoorlyDrawn(comic)
 	elif comic.parseri == 49:
 		olio = Ma3(comic)
+	elif comic.parseri == 50:
+		olio = Blastwave(comic)
+	elif comic.parseri == 51:
+		olio = StandStill(comic)
 
 
 	

@@ -52,3 +52,5 @@ from UserFriendly import UserFriendly
 from DeathBulge import DeathBulge
 from PoorlyDrawn import PoorlyDrawn
 from Ma3 import Ma3
+from Blastwave import Blastwave
+from StandStill import StandStill
