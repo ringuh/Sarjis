@@ -13,6 +13,7 @@ db.session.flush()
 u = User(u"ringuh", u"zerg", True)
 db.session.add(u)
 
+db.session.add(User(u"vieras", u"vieras"))
 coms = [
 	Sarjakuva( 	
 		u"Oglaf", 
@@ -789,14 +790,7 @@ coms = [
 			u"http://www.therockcocks.com/comic/page-1"
 		),
 
-	Sarjakuva(
-			u"Stand Still Stay Silent", 
-			u"standstillstaysilent",
-			u"http://www.sssscomic.com/", 
-			u"Minna Sundberg", 
-			51,
-			u"http://www.sssscomic.com/comic.php?page=1"
-		),
+	
 
 	Sarjakuva(
 			u"The Noob", 
@@ -843,7 +837,23 @@ coms = [
 			u"http://www.darklegacycomics.com/1"
 		),
 
+	Sarjakuva(
+			u"Stand Still Stay Silent", 
+			u"standstillstaysilent",
+			u"http://www.sssscomic.com/", 
+			u"Minna Sundberg", 
+			51,
+			u"http://www.sssscomic.com/comic.php?page=1"
+		),
 
+	Sarjakuva(
+			u"Completely Normal People", 
+			u"completelynormal",
+			u"http://completelynormalpeople.com/", 
+			u"Unknown", 
+			53,
+			u"http://completelynormalpeople.com/images/toons/"
+		),
 
 	# Sarjakuva(
 	# 		u"Death Bulge", 

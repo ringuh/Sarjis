@@ -49,10 +49,11 @@
 	      	{% endif %}
 	      	<ul class="nav navbar-nav navbar-right">
 		        	{% if user.is_authenticated() %}
+		        	{% if user.id != 2 %}
 		        	<li {% if page=="list"%} class="options" {% endif %}>
 		        		<a href="/options/">
 		        			<span class="glyphicons glyphicons-settings"></span>
-		        			{{ user.account }}</a></li>
+		        			{{ user.account }}</a></li> {% endif %}
 		        	<li><a href="/logout/">
 		        		<span class="glyphicons glyphicons-log-out"></span> <span class="smallscreen twopx">Logout</span></a>
 		        	</li>

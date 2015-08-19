@@ -55,3 +55,4 @@ from Ma3 import Ma3
 from Blastwave import Blastwave
 from StandStill import StandStill
 from DarkLegacy import DarkLegacy
+from CompletelyNormalPeople import CompletelyNormalPeople

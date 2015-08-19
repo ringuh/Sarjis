@@ -21,6 +21,7 @@ class Sarjis(object):
 			url = sarjakuva.last_url
 		self.urli = url
 		r = requests.get(url, headers = { 'User-Agent' : 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36' })
+		#print r.text
 		self.soup = BeautifulSoup(r.text)
 		print u"\nFinding url", url 
 

@@ -136,6 +136,8 @@ def Looper(comic):
 		olio = StandStill(comic)
 	elif comic.parseri == 52:
 		olio = DarkLegacy(comic)
+	elif comic.parseri == 53:
+		olio = CompletelyNormalPeople(comic)
 
 
 	
