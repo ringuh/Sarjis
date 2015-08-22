@@ -311,9 +311,10 @@ def add():
 
 			i = i.strip('"')
 
-			if not i[0] in [")", "S"] and i != "":
+			if not i[0] in [")"] and i != "" and not "Sarjakuva" in i:
 				add.append(i)
-			
+		
+		#print add
 		if len(add) == 6:
 			db.session.add(SK(add[0], add[1], add[2], add[3], add[4], add[5]))
 			db.session.commit()

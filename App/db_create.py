@@ -855,6 +855,15 @@ coms = [
 			u"http://completelynormalpeople.com/images/toons/"
 		),
 
+	Sarjakuva(
+			u"Safely Endangered", 
+			u"safelyendangered",
+			u"http://www.safelyendangered.com/", 
+			u"Chris", 
+			11,
+			u"http://www.safelyendangered.com/comic/ignored/"
+		),
+
 	# Sarjakuva(
 	# 		u"Death Bulge", 
 	# 		u"deathbulge",
