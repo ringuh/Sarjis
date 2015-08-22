@@ -56,3 +56,4 @@ from Blastwave import Blastwave
 from StandStill import StandStill
 from DarkLegacy import DarkLegacy
 from CompletelyNormalPeople import CompletelyNormalPeople
+from RomanticallyApocalyptic import RomanticallyApocalyptic

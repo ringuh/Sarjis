@@ -864,6 +864,33 @@ coms = [
 			u"http://www.safelyendangered.com/comic/ignored/"
 		),
 
+	Sarjakuva(
+			u"Nedroid", 
+			u"nedroid",
+			u"http://nedroid.com/", 
+			u"Unknown", 
+			4,
+			u"http://nedroid.com/2015/04/gobs/"
+		),
+
+	Sarjakuva(
+			u"Romantically Apocalyptic", 
+			u"romanticallyapocalyptic",
+			u"http://romanticallyapocalyptic.com/", 
+			u"Unknown", 
+			54,
+			u"http://romanticallyapocalyptic.com/0"
+		),
+
+	Sarjakuva(
+			u"The Fox Sisters", 
+			u"foxsisters",
+			u"http://www.thefoxsister.com/", 
+			u"Unknown", 
+			9,
+			u"http://www.thefoxsister.com/index.php?id=1"
+		),
+
 	# Sarjakuva(
 	# 		u"Death Bulge", 
 	# 		u"deathbulge",

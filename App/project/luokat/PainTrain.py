@@ -13,6 +13,8 @@ class PainTrain(Sarjis):
 		kuvan_nimi = None
 		src = None
 		img = self.soup.find(id="comic")
+		if self.sarjakuva.lyhenne == "foxsisters":
+			img = self.soup.find(id="comic-page")
 
 		img = img.find("img")
 		src = img["src"]
