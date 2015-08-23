@@ -32,6 +32,10 @@ def Looper(comic):
 	if "nr" in sys.argv:
 		if comic.parseri != int(sys.argv[3]):
 			return
+	if "id" in sys.argv:
+		if comic.id != int(sys.argv[3]):
+			return
+			
 	olio = None
 	if comic.parseri == 1:
 		olio = Oglaf(comic)

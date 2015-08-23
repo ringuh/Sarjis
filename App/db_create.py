@@ -891,6 +891,15 @@ coms = [
 			u"http://www.thefoxsister.com/index.php?id=1"
 		),
 
+	Sarjakuva(
+			u"The Odd 1s Out", 
+			u"theodd1sout",
+			u"http://theodd1sout.com/", 
+			u"Unknown", 
+			9,
+			u"http://theodd1sout.com/comic/god-its-awful/"
+		),
+
 	# Sarjakuva(
 	# 		u"Death Bulge", 
 	# 		u"deathbulge",

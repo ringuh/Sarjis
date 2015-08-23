@@ -12,7 +12,7 @@ def run():
 
 	n = db.session.query(ST).filter(
 			ST.sarjakuva_id == nr
-		).all()
+		).order_by(ST.id).all()
 
 	offset = len(n)
 

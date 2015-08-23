@@ -26,6 +26,10 @@ class PainTrain(Sarjis):
 		if not "http:" in src:
 			src = "http:"+src
 		#print kuvan_nimi, src
+		if kuvan_nimi == "download.png":
+			kuvan_nimi = None
+			src = None
+			
 		return dict(nimi=kuvan_nimi, src=src)
 
 
