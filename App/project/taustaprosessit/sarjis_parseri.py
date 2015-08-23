@@ -36,7 +36,8 @@ def Looper(comic):
 		if comic.id != int(sys.argv[3]):
 			return
 	elif comic.last_parse is not None:
-		if comic.last_parse + datetime.timedelta(hours=comic.interval) > datetime.datetime.now():
+		if comic.last_parse + datetime.timedelta(hours=comic.interval) > datetime.datetime.now() \
+		or comic.interval == 0:
 			return
 
 	olio = None
