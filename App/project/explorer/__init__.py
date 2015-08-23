@@ -77,7 +77,10 @@ def index(pvm=None):
 	stripit = db.session.query(Strippi).filter(
 				Strippi.date_created >= today, 
 				Strippi.date_created < tomorrow,
-				~Strippi.sarjakuva_id.in_(karsitut) ).limit(200).all()
+				~Strippi.sarjakuva_id.in_(karsitut) 
+			).order_by(
+				Strippi.date_created
+			).limit(200).all()
 
 	return render_template("portal.html", page="index", 
 		dates=dates, stripit=stripit, user=current_user)

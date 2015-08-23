@@ -32,10 +32,13 @@ def Looper(comic):
 	if "nr" in sys.argv:
 		if comic.parseri != int(sys.argv[3]):
 			return
-	if "id" in sys.argv:
+	elif "id" in sys.argv:
 		if comic.id != int(sys.argv[3]):
 			return
-			
+	elif comic.last_parse is not None:
+		if comic.last_parse + datetime.timedelta(hours=comic.interval) > datetime.datetime.now():
+			return
+
 	olio = None
 	if comic.parseri == 1:
 		olio = Oglaf(comic)
@@ -156,6 +159,9 @@ def Looper(comic):
 	count = 0
 	while loop is not None:
 		loop = olio.Loop(comic, loop)
+		if loop is not None:
+			comic.last_parse = datetime.datetime.now()
+			db.session.commit()
 		count += 1
 		if "short" in sys.argv and count > 2:
 			return True

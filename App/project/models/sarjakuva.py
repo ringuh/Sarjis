@@ -16,7 +16,7 @@ class Sarjakuva(db.Model):
 	url = db.Column(db.UnicodeText)
 	last_url = db.Column(db.UnicodeText)
 	more = db.Column(db.Boolean, default=False)
-	interval = db.Column(db.Integer, default=6) # tunteja
+	interval = db.Column(db.Integer, default=12) # tunteja
 	last_parse = db.Column(db.DateTime)
 	date_created = db.Column(db.DateTime, default=datetime.datetime.now)
 	#joukkue_id = db.Column(db.Integer, ForeignKey('joukkue.id'), nullable=True)
