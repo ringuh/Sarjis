@@ -11,16 +11,15 @@ def run():
 	sarjakuvat = db.session.query(SK).order_by(SK.id).all()
 
 	for i in sarjakuvat:
-		print i.nimi
 		now = datetime.datetime.now()
-		if i.last_parse is None or i.last_parse+datetime.timedelta(hours=i.interval) < now:
-			try:
-				Looper(i)
-			except Exception, e:
-				print i.nimi, e
-				#raise e
+		
+		try:
+			Looper(i)
+		except Exception, e:
+			print i.nimi, e
+			#raise e
 			
-		print "----\n"
+		
 	#print "End"
 	
 	return "JOU"
@@ -30,16 +29,20 @@ def Looper(comic):
 	#print "\n"+comic.nimi
 	#return None
 	if "nr" in sys.argv:
+		
 		if comic.parseri != int(sys.argv[3]):
 			return
 	elif "id" in sys.argv:
 		if comic.id != int(sys.argv[3]):
 			return
-	elif comic.last_parse is not None:
-		if comic.last_parse + datetime.timedelta(hours=comic.interval) > datetime.datetime.now() \
-		or comic.interval == 0:
+	else:
+		if comic.last_parse is not None:
+			if comic.last_parse + datetime.timedelta(hours=comic.interval) > datetime.datetime.now():
+				return
+		elif comic.interval == 0:
 			return
-
+	print "----\n"
+	print comic.nimi
 	olio = None
 	if comic.parseri == 1:
 		olio = Oglaf(comic)

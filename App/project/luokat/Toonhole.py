@@ -35,7 +35,7 @@ class Toonhole(Sarjis):
 
 			rel = link.get("rel")
 			#print rel, link["href"]
-			if rel is not None and "next" in rel:
+			if rel is not None and "next" in rel and link["href"] != "#":
 				if  link["href"][0] == "/":
 					link["href"] = u"{}{}".format(self.sarjakuva.url, link["href"][1:])
 				return link["href"]
