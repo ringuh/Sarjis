@@ -14,7 +14,7 @@ class BaseConfig(object):
 	
 	MAX_CONTENT_LENGTH = 2 * 1024 * 1024
 	
-	
+	REQUEST_HEADER = { 'User-Agent' : 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36' }
 	
 	#ERRORS_LOG_PATH = os.path.join(UPLOAD_FOLDER, 'foo.log')
 

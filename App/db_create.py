@@ -906,7 +906,7 @@ coms = [
 			u"http://berdsandnerds.com/", 
 			u"Unknown", 
 			55,
-			u"http://berdsandnerds.com/comic/2013/4/1/comic-1"
+			u"http://berdsandnerds.com/thearchive/"
 		),
 
 	# Sarjakuva(
