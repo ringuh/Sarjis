@@ -58,3 +58,4 @@ from DarkLegacy import DarkLegacy
 from CompletelyNormalPeople import CompletelyNormalPeople
 from RomanticallyApocalyptic import RomanticallyApocalyptic
 from BerdsNerds import BerdsNerds
+from FoxTrot import FoxTrot

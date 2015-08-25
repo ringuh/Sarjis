@@ -909,6 +909,15 @@ coms = [
 			u"http://berdsandnerds.com/thearchive/"
 		),
 
+	Sarjakuva(
+			u"FoxTrot", 
+			u"foxtrot",
+			u"http://www.foxtrot.com/", 
+			u"Bill Amend", 
+			56,
+			u"http://www.foxtrot.com/2015/08/16/no-worries/"
+		),
+
 	# Sarjakuva(
 	# 		u"Death Bulge", 
 	# 		u"deathbulge",
