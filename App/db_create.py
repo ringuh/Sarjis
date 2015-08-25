@@ -900,6 +900,15 @@ coms = [
 			u"http://theodd1sout.com/comic/god-its-awful/"
 		),
 
+	Sarjakuva(
+			u"Berds and Nerds", 
+			u"berdsandnerds",
+			u"http://berdsandnerds.com/", 
+			u"Unknown", 
+			55,
+			u"http://berdsandnerds.com/comic/2013/4/1/comic-1"
+		),
+
 	# Sarjakuva(
 	# 		u"Death Bulge", 
 	# 		u"deathbulge",
