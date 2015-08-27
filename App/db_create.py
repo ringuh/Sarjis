@@ -945,6 +945,15 @@ coms = [
 			u"http://www.thingsinsquares.com/comics/lame-joke/"
 		),
 
+	Sarjakuva(
+			u"Down the Upward Spiral", 
+			u"downtheupwardspiral",
+			u"http://www.downtheupwardspiral.com/", 
+			u"Corey Giacco", 
+			58,
+			u"http://www.downtheupwardspiral.com/gallery.html"
+		),
+
 
 	# Sarjakuva(
 	# 		u"Death Bulge", 

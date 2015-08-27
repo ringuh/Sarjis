@@ -59,3 +59,4 @@ from RomanticallyApocalyptic import RomanticallyApocalyptic
 from BerdsNerds import BerdsNerds
 from FoxTrot import FoxTrot
 from ThingsInSquares import ThingsInSquares
+from DownTheUpwardSpiral import DownTheUpwardSpiral
