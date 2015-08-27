@@ -60,3 +60,4 @@ from BerdsNerds import BerdsNerds
 from FoxTrot import FoxTrot
 from ThingsInSquares import ThingsInSquares
 from DownTheUpwardSpiral import DownTheUpwardSpiral
+from RiceBoy import RiceBoy

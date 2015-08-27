@@ -160,6 +160,9 @@ def Looper(comic):
 		olio = ThingsInSquares(comic)
 	elif comic.parseri == 58:
 		olio = DownTheUpwardSpiral(comic)
+	elif comic.parseri == 59:
+		olio = RiceBoy(comic)
+
 
 
 	

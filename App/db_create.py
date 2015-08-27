@@ -954,6 +954,23 @@ coms = [
 			u"http://www.downtheupwardspiral.com/gallery.html"
 		),
 
+	Sarjakuva(
+			u"Strong Female Protagonist", 
+			u"strongfemaleprotagonist",
+			u"http://strongfemaleprotagonist.com/", 
+			u"unknown", 
+			38,
+			u"http://strongfemaleprotagonist.com/issue-1/page-0/"
+		),
+
+	Sarjakuva(
+			u"Vattu", 
+			u"vattu",
+			u"http://www.rice-boy.com/vattu/", 
+			u"unknown", 
+			59,
+			u"http://www.rice-boy.com/vattu/index.php?c=001"
+		),
 
 	# Sarjakuva(
 	# 		u"Death Bulge", 
