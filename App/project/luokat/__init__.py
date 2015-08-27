@@ -11,7 +11,6 @@ from Dragonarte import Dragonarte
 from PainTrain import PainTrain
 from HappleTea import HappleTea
 from VGCats import VGCats
-from PocketPrinsesses import PocketPrinsesses
 from NerfNow import NerfNow
 from Sinfest import Sinfest
 from Camp import Camp
@@ -59,3 +58,4 @@ from CompletelyNormalPeople import CompletelyNormalPeople
 from RomanticallyApocalyptic import RomanticallyApocalyptic
 from BerdsNerds import BerdsNerds
 from FoxTrot import FoxTrot
+from ThingsInSquares import ThingsInSquares

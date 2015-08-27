@@ -918,6 +918,34 @@ coms = [
 			u"http://www.foxtrot.com/2015/08/16/no-worries/"
 		),
 
+	Sarjakuva(
+			u"Sunny Street", 
+			u"sunnystreet",
+			u"http://www.gocomics.com/sunny-street/", 
+			u"Max Garcia and Sandra Barthauer", 
+			20,
+			u"http://www.gocomics.com/sunny-street/2013/06/03"
+		),
+
+	Sarjakuva(
+			u"Exploding Dinosaur", 
+			u"explodingdinosaur",
+			u"http://explodingdinosaur.com/", 
+			u"Josh Walthall", 
+			11,
+			u"http://explodingdinosaur.com/comic/seriously-stop-it/"
+		),
+
+	Sarjakuva(
+			u"Things In Squares", 
+			u"thingsinsquares",
+			u"http://www.thingsinsquares.com/", 
+			u"Unknown", 
+			57,
+			u"http://www.thingsinsquares.com/comics/lame-joke/"
+		),
+
+
 	# Sarjakuva(
 	# 		u"Death Bulge", 
 	# 		u"deathbulge",

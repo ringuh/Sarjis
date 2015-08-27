@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import datetime, urllib, os, requests, hashlib
 from project.luokat.Sarjis import Sarjis
 
-class PocketPrinsesses(Sarjis):
+class ThingsInSquares(Sarjis):
 
 	def __init__(self, sarjakuva, urli=None ):
 		Sarjis.__init__(self, sarjakuva, urli)
@@ -12,8 +12,10 @@ class PocketPrinsesses(Sarjis):
 	def Kuva(self):
 		kuvan_nimi = None
 		src = None
-
-		div = self.soup.find(id="comic-1")
+		
+		div = self.soup.find(id="content")
+		article = div.find("article")
+		div = article.find("div", {"class": "entry-content"})
 		img = div.find("img")
 		kuva = img["src"].split("/")
 		kuvan_nimi = kuva[len(kuva)-1] # haetaan nimi
@@ -26,17 +28,13 @@ class PocketPrinsesses(Sarjis):
 		
 
 	def Next(self):
-		link = self.soup.find("a", {"class": "navi-next"})
-
-		if link is not None:
-			return link["href"]
+		div = self.soup.find("div", {"class": "nav-links"})
+		links = div.find_all("a")
+		for link in links:
+			rel = link.get("rel")
+			if rel is not None and "next" in rel:
+				if link["href"] is not None:
+					return link["href"]
 		
 		return None
 
-	def Loop(self, sarjakuva=None, url=None): # ylikirjoitetaan looppi
-		if sarjakuva is not None: # initoidaan uudella urlilla
-			self.Init(sarjakuva, url)
-
-		print u"Mahdoton"
-
-		return None
