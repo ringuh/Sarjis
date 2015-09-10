@@ -972,6 +972,52 @@ coms = [
 			u"http://www.rice-boy.com/vattu/index.php?c=001"
 		),
 
+	Sarjakuva(
+			u"nellucnhoj", 
+			u"nellucnhoj",
+			u"http://nellucnhoj.com/", 
+			u"unknown", 
+			45,
+			u"http://nellucnhoj.com/post/72259187580/back-in-2010-i-decided-to-punish-myself-by-doing"
+		),
+
+	Sarjakuva(
+		u"Jim Benton", 
+		u"jimbenton",
+		u"http://www.gocomics.com/jim-benton-cartoons/", 
+		u"Jim Benton", 
+		20, # vaihda in future
+		u"http://www.gocomics.com/jim-benton-cartoons/2014/10/27",
+	),
+
+	Sarjakuva(
+		u"Veritable Hokum", 
+		u"veritablehokum",
+		u"http://www.veritablehokum.com/", 
+		u"Korwin Briggs", 
+		11,
+		u"http://www.veritablehokum.com/comic/headless-folks-of-the-french-revolution/",
+	),
+
+	Sarjakuva(
+		u"Hijinks Ensue", 
+		u"hijinksensue",
+		u"http://hijinksensue.com/", 
+		u"Joel Watson", 
+		11,
+		u"http://hijinksensue.com/comic/who-is-your-daddy-and-what-does-he-do/",
+	),
+
+	Sarjakuva(
+		u"Sharksplode", 
+		u"sharksplode",
+		u"http://sharksplode.com/", 
+		u"Joel Watson", 
+		11,
+		u"http://sharksplode.com/comic/is-it-the-word-is-it-really/",
+	),
+
+
 	# Sarjakuva(
 	# 		u"Death Bulge", 
 	# 		u"deathbulge",

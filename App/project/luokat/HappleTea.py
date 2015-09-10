@@ -13,7 +13,9 @@ class HappleTea(Sarjis):
 		kuvan_nimi = None
 		src = None
 		
+		#print self.soup
 		div = self.soup.find(id="comic")
+
 		img = div.find("img")
 		kuva = img["src"].split("/")
 		kuvan_nimi = kuva[len(kuva)-1] # haetaan nimi
@@ -27,7 +29,9 @@ class HappleTea(Sarjis):
 
 	def Next(self):
 		link = self.soup.find("a", {"class": "navi-next"})
-
+		if link is None:
+			link = self.soup.find("a", {"class": "navi-next-in"})
+		
 		if link is not None:
 			return link["href"]
 		
