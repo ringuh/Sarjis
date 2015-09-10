@@ -1008,6 +1008,7 @@ coms = [
 		u"http://hijinksensue.com/comic/who-is-your-daddy-and-what-does-he-do/",
 	),
 
+
 	Sarjakuva(
 		u"Sharksplode", 
 		u"sharksplode",
@@ -1017,6 +1018,14 @@ coms = [
 		u"http://sharksplode.com/comic/is-it-the-word-is-it-really/",
 	),
 
+	Sarjakuva(
+		u"Grog", 
+		u"grog",
+		u"http://www.grogcomics.com/", 
+		u"Joel Watson", 
+		60,
+		u"http://www.grogcomics.com/post/31903734556/my-first-posted-comic",
+	),
 
 	# Sarjakuva(
 	# 		u"Death Bulge", 
