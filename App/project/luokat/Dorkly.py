@@ -2,7 +2,7 @@
 from project import db
 from bs4 import BeautifulSoup
 import datetime, urllib, os, requests, hashlib
-from project.luokat.Sarjis import Sarjis
+from project.luokat.Sarjis import Sarjis, Strippi
 
 class Dorkly(Sarjis):
 
@@ -30,7 +30,11 @@ class Dorkly(Sarjis):
 		link = nav.find("a", { "class": "anchor_next"})
 		
 		if link is not None and link["href"] != "#":
-			return u"{}{}".format(self.sarjakuva.url[:-1], link["href"])
+			tmp = u"{}{}".format(self.sarjakuva.url[:-1], link["href"])
+			n = db.session.query(Strippi).filter(
+					Strippi.url == tmp ).first()
+			if n is not None:
+				return u"{}{}".format(self.sarjakuva.url[:-1], link["href"])
 		
 		return None
 
