@@ -62,3 +62,4 @@ from ThingsInSquares import ThingsInSquares
 from DownTheUpwardSpiral import DownTheUpwardSpiral
 from RiceBoy import RiceBoy
 from Grog import Grog
+from Dorkly import Dorkly

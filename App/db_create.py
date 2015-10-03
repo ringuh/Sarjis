@@ -1027,6 +1027,50 @@ coms = [
 		u"http://www.grogcomics.com/post/31903734556/my-first-posted-comic",
 	),
 
+	Sarjakuva(
+		u"Legacy Control", 
+		u"legacy-control",
+		u"http://legacy-control.com/", 
+		u"Javis Ray", 
+		11,
+		u"http://legacy-control.com/comic/advent-boner-3/",
+	),
+	Sarjakuva(
+		u"The Adventures of Businesscat", 
+		u"businesscat",
+		u"http://www.businesscat.happyjar.com/", 
+		u"Javis Ray", 
+		11,
+		u"http://www.businesscat.happyjar.com/comic/coffee/",
+	),
+
+	Sarjakuva(
+		u"Hejibits", 
+		u"hejibits",
+		u"http://www.hejibits.com/", 
+		u"John", 
+		11,
+		u"http://www.hejibits.com/comics/roommate-comics-1/"
+	),
+
+	Sarjakuva(
+		u"Dire Circumstances", 
+		u"dire",
+		u"http://fruitscs.tumblr.com/", 
+		u"Jasper Huang", 
+		45,
+		u"http://fruitscs.tumblr.com/post/117225884584"
+	),
+
+	Sarjakuva(
+		u"Dorkly", 
+		u"dorkly",
+		u"http://www.dorkly.com/", 
+		u"Unknown", 
+		61,
+		u"http://www.dorkly.com/post/1419/why-you-should-only-use-round-pokemon?ref=comics",
+	),
+
 	# Sarjakuva(
 	# 		u"Death Bulge", 
 	# 		u"deathbulge",
