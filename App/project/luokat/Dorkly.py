@@ -35,6 +35,8 @@ class Dorkly(Sarjis):
 					Strippi.url == tmp ).first()
 			if n is None:
 				return u"{}{}".format(self.sarjakuva.url[:-1], link["href"])
+			else:
+				return self.AltCheck()
 		
 		return None
 
@@ -56,3 +58,27 @@ class Dorkly(Sarjis):
 			self.Save(nimi, url)
 					
 		return self.Next()
+
+
+
+	def AltCheck(self):
+		r = requests.get("http://www.dorkly.com/comics")
+		soup = BeautifulSoup(r.text)
+
+		div = soup.find("div", { "class": "content"})
+
+		links = div.find_all("a", {"class": "thumb"})
+
+		prev_url = None
+		for link in links:
+			url = link["href"]
+			if "ref=comics" in url:
+				tmp = u"{}{}".format(self.sarjakuva.url[:-1], url)
+				n = db.session.query(Strippi).filter(
+					Strippi.url == tmp ).first()
+
+				if n is None:
+					prev_url = tmp
+				else:
+					break
+		return prev_url 
