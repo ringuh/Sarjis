@@ -33,7 +33,7 @@ class Dorkly(Sarjis):
 			tmp = u"{}{}".format(self.sarjakuva.url[:-1], link["href"])
 			n = db.session.query(Strippi).filter(
 					Strippi.url == tmp ).first()
-			if n is not None:
+			if n is None:
 				return u"{}{}".format(self.sarjakuva.url[:-1], link["href"])
 		
 		return None
