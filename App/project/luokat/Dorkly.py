@@ -40,17 +40,15 @@ class Dorkly(Sarjis):
 			self.Init(sarjakuva, url)
 
 		div = self.soup.find("div", { "class": "post-content"})
-		medias = div.find_all("div", {"class":"media"})
-
-		for media in medias:
-			images = media.find_all("img")
-			for img in images:
-				url = img["src"]
-				
-				if url is None or "download.jpg" in url:
-					continue
-				nimi =  url.split("/")[-1] # haetaan nimi
-				
-				self.Save(nimi, url)
+		
+		images = div.find_all("img")
+		for img in images:
+			url = img["src"]
+			
+			if url is None or "download.jpg" in url:
+				continue
+			nimi =  url.split("/")[-1] # haetaan nimi
+			
+			self.Save(nimi, url)
 					
 		return self.Next()
