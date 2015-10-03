@@ -1071,6 +1071,15 @@ coms = [
 		u"http://www.dorkly.com/post/1419/why-you-should-only-use-round-pokemon?ref=comics",
 	),
 
+	Sarjakuva(
+		u"Tubey toons", 
+		u"tubey",
+		u"http://tubeytoons.com/", 
+		u"Tubey", 
+		62,
+		u"http://tubeytoons.com/comic/stay-put",
+	),
+
 	# Sarjakuva(
 	# 		u"Death Bulge", 
 	# 		u"deathbulge",
