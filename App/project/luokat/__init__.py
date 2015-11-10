@@ -64,3 +64,4 @@ from RiceBoy import RiceBoy
 from Grog import Grog
 from Dorkly import Dorkly
 from Tubey import Tubey
+from NerdRage import NerdRage

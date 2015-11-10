@@ -196,14 +196,14 @@ coms = [
 		u"http://questionablecontent.net/view.php?comic=1"
 	),
 
-	Sarjakuva(
-		u"Wulffmorgenthaler", 
-		u"wumo",
-		u"http://kindofnormal.com/wumo/", 
-		u"Wumo", 
-		6, # vaihda in future
-		u"http://www.sarjis.info/sarjakuvat/wulffmorgenthaler/95/"
-	),
+	# Sarjakuva(
+	# 	u"Wulffmorgenthaler", 
+	# 	u"wumo",
+	# 	u"http://kindofnormal.com/wumo/", 
+	# 	u"Wumo", 
+	# 	64, # vaihda in future
+	# 	u"http://www.sarjis.info/sarjakuvat/wulffmorgenthaler/95/"
+	# ),
 	# GO COMICS
 	Sarjakuva(
 		u"Lassi ja Leevi", 
@@ -1078,6 +1078,42 @@ coms = [
 		u"Tubey", 
 		62,
 		u"http://tubeytoons.com/comic/stay-put",
+	),
+
+	Sarjakuva(
+		u"The Awkward Yeti", 
+		u"awkwardyeti",
+		u"http://theawkwardyeti.com/", 
+		u"Nick Seluk", 
+		11,
+		u"http://theawkwardyeti.com/comic/0912-reading/",
+	),
+
+	Sarjakuva(
+		u"Big Foot Justice", 
+		u"bigfootjustice",
+		u"http://bigfootjustice.com/", 
+		u"Mike Salcedo", 
+		11,
+		u"http://bigfootjustice.com/comic/iscale-2/",
+	),
+
+	Sarjakuva(
+		u"Nerd Rage", 
+		u"nerdrage",
+		u"http://nerdragecomic.com/", 
+		u"Unknown", 
+		63,
+		u"http://nerdragecomic.com/index.php?date=2010-09-28",
+	),
+
+	Sarjakuva(
+		u"Whomp", 
+		u"whomp",
+		u"http://www.whompcomic.com/", 
+		u"Unknown", 
+		22,
+		u"http://www.whompcomic.com/comic/06152010",
 	),
 
 	# Sarjakuva(
