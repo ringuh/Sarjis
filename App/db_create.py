@@ -196,14 +196,14 @@ coms = [
 		u"http://questionablecontent.net/view.php?comic=1"
 	),
 
-	# Sarjakuva(
-	# 	u"Wulffmorgenthaler", 
-	# 	u"wumo",
-	# 	u"http://kindofnormal.com/wumo/", 
-	# 	u"Wumo", 
-	# 	64, # vaihda in future
-	# 	u"http://www.sarjis.info/sarjakuvat/wulffmorgenthaler/95/"
-	# ),
+	Sarjakuva(
+		u"Wulffmorgenthaler", 
+		u"wumo",
+		u"http://wumo.com/", 
+		u"Wumo", 
+		64, # vaihda in future
+		u"http://wumo.com/wumo/2015/09/08"
+	),
 	# GO COMICS
 	Sarjakuva(
 		u"Lassi ja Leevi", 
@@ -1114,6 +1114,16 @@ coms = [
 		u"Unknown", 
 		22,
 		u"http://www.whompcomic.com/comic/06152010",
+	),
+
+
+	Sarjakuva(
+		u"Commit Strip", 
+		u"commitstrip",
+		u"http://www.commitstrip.com/", 
+		u"ItstheTie", 
+		38,
+		u"http://www.commitstrip.com/en/2012/02/22/interview/"
 	),
 
 	# Sarjakuva(

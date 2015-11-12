@@ -22,7 +22,9 @@ class ItsTheTie(Sarjis):
 
 	def Next(self):
 		nav = self.soup.find("div", {"class":"nav-next"})
-	
+		if nav is None:
+			nav = self.soup.find("span", {"class":"nav-next"})
+
 		link = nav.find("a")
 		if link is not None:
 			return link["href"]
