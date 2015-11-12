@@ -14,6 +14,8 @@ class ItsTheTie(Sarjis):
 		src = None
 
 		img = self.soup.find("img", { "class": "alignnone"})
+		if img is None:
+			img = self.soup.find("img", { "class": "aligncenter"})
 		kuva = img["src"].split("/")
 		kuvan_nimi = kuva[len(kuva)-1] # haetaan nimi
 		src = img["src"]
