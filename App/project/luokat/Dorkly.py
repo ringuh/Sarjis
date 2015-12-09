@@ -29,17 +29,19 @@ class Dorkly(Sarjis):
 		print "next"
 		#nav = self.soup.find("nav", { "class": "arrow-next"})
 		#link = nav.find("a", { "class": "anchor_next"})
-		nav = self.soup.find("div", { "class": "pagination"})
-		link = nav.find("a", { "class": "next"})
-		
-		if link is not None and link["href"] != "#":
-			tmp = u"{}{}".format(self.sarjakuva.url[:-1], link["href"])
-			n = db.session.query(Strippi).filter(
-					Strippi.url == tmp ).first()
-			if n is None:
-				return u"{}{}".format(self.sarjakuva.url[:-1], link["href"])
-			else:
-				return self.AltCheck()
+		try:
+			nav = self.soup.find("div", { "class": "pagination"})
+			link = nav.find("a", { "class": "next"})
+			
+			if link is not None and link["href"] != "#":
+				tmp = u"{}{}".format(self.sarjakuva.url[:-1], link["href"])
+				n = db.session.query(Strippi).filter(
+						Strippi.url == tmp ).first()
+				if n is None:
+					return u"{}{}".format(self.sarjakuva.url[:-1], link["href"])
+			
+		except:
+			return self.AltCheck()
 		
 		return None
 
